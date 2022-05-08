@@ -1,38 +1,65 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hidden {
+  display: none !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
 }
 
-.App-link {
-  color: #61dafb;
+.map-container {
+  flex: 7 1 auto;
+  background: red;
+  height: 100vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.controls-container {
+  flex: 3 1 auto;
+  background: rgb(0, 13, 89);
+}
+
+#hamburger {
+  position: absolute;
+  display: none;
+  right: 20px;
+  top: 20px;
+  z-index: 100;
+}
+
+.leaflet-container {
+  height: 100%;
+  z-index: 10;
+}
+
+@media only screen and (max-width: 600px) {
+  .leaflet-control-container {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+
+  #hamburger {
+    display: block;
+  }
+
+  .controls-container {
+    position: absolute;
+    z-index: 99;
+    width: 100vh;
+    height: 100vh;
+    transition: transform 0.35s;
+    transform: translateY(100%);
+  }
+
+  .controls-container.visible {
+    position: absolute;
+    transform: translateY(0%);
   }
 }
