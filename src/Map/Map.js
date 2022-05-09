@@ -16,18 +16,19 @@ const MapObject = () => {
   return null;
 };
 
-export const Map = ({ className, onAddMarker, markers }) => {
+export const Map = () => {
+  const { markersState } = useContext(appContext);
   return (
-    <div className={className}>
+    <div className="map-container">
       <MapContainer center={[20.505, -40]} zoom={5} scrollWheelZoom={true}>
-        <MapObject onAddMarker={onAddMarker} />
+        <MapObject />
         <ImageOverlay
           url="http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg"
           bounds={bounds}
           opacity={1}
           zIndex={100}
         />
-        {markers.map((marker) => (
+        {markersState.map((marker) => (
           <Marker position={[marker.lat, marker.lng]} />
         ))}
       </MapContainer>

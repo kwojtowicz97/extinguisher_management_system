@@ -12,7 +12,7 @@ const markersReducer = (state, action) => {
       };
       return [...state, newMarker];
     default:
-      throw new Error("[hamburger] invalid action");
+      throw new Error("[marker] invalid action");
   }
 };
 
