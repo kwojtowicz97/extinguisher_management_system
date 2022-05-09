@@ -1,4 +1,14 @@
-export const Hamburger = ({ className, onClick }) => {
+import { useContext } from "react";
+import { appContext } from "../store/appContext";
+import { toggleHamburer } from "../actions/ui";
+
+export const Hamburger = ({ className }) => {
+  const { hamburgerDispatch } = useContext(appContext);
+
+  const onClick = () => {
+      hamburgerDispatch(toggleHamburer());
+  }
+
   return (
     <button onClick={onClick} id="hamburger" className={className}>
       <svg

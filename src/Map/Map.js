@@ -1,12 +1,18 @@
 import { useMapEvent, MapContainer, ImageOverlay, Marker } from "react-leaflet";
 import { LatLngBounds } from "leaflet";
+import { useContext } from "react";
+import { appContext } from "../store/appContext";
+import { addMarker } from "../actions/markers";
 
 const bounds = new LatLngBounds([0, 0], [40.773941, -74.12544]);
 
-const MapObject = ({ onAddMarker }) => {
-  const map = useMapEvent("click", (e) => {
-    onAddMarker(e);
+const MapObject = () => {
+  const { markersDispatch } = useContext(appContext);
+
+  useMapEvent("click", (e) => {
+    markersDispatch(addMarker(e));
   });
+
   return null;
 };
 
