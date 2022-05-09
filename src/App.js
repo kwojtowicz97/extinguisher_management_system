@@ -1,21 +1,16 @@
 import "./App.css";
 import { useState } from "react";
+import { useHamburger, useMarker } from "./hooks";
 
 import { Hamburger } from "./UI/Hamburger";
 import { Map } from "./Map/Map";
 import { Controls } from "./Controls/Controls";
 
 function App() {
-  const [isHamburgerActive, setIsHamburgerActive] = useState(false);
-  const toggleHamburgerHandler = () => {
-    setIsHamburgerActive((state) => !state);
-  };
+  const [isHamburgerActive, toggleHamburgerHandler] = useHamburger(false)
+  const [markers, addMarkerHandler] = useMarker()
 
-  const [markers, setMarkers] = useState([]);
-  const addMarkerHandler = (e) => {
-    console.log(e);
-    setMarkers((prev) => [...prev, { lat: e.latlng.lat, lng: e.latlng.lng }]);
-  };
+
 
   return (
     <div className="app-container">
