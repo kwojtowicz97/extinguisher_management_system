@@ -55,6 +55,14 @@ body {
   z-index: 200;
 }
 
+.modal-backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(1px);
+  z-index: 199;
+}
+
 .modal-header {
   padding: 0.5rem 2rem;
   font-size: 2rem;

@@ -1,5 +1,5 @@
-const ControlsSection = ({ title, children, button }) => {
-  const {btnTitle, btnOnClick} = button || {}
+export const ControlsSection = ({ title, children, button }) => {
+  const { btnTitle, btnOnClick } = button || {};
 
   return (
     <div className="controls-section">
@@ -10,28 +10,3 @@ const ControlsSection = ({ title, children, button }) => {
   );
 };
 
-export const ControlsSectionWithPointsList = () => {
-  return (
-    <ControlsSection
-      title={"Points"}
-      button={{ btnTitle: "Add new Point", btnOnClick: null }}
-    ></ControlsSection>
-  );
-};
-
-export const ControlsSectionWithExtingushersList = () => {
-  return (
-    <ControlsSection
-      title={"Extingushers"}
-      button={{ btnTitle: "Add new Extinguisher", onClick: null }}
-    ></ControlsSection>
-  );
-};
-
-export const ControlsSectionWithWarningsList = () => {
-  return <ControlsSection title={"Warnings"}></ControlsSection>;
-};
-
-export const ControlsSectionWithDangersList = () => {
-  return <ControlsSection title={"Dangers"}></ControlsSection>;
-};
