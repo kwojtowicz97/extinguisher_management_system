@@ -1,17 +1,29 @@
 import "./App.css";
 
-import { Hamburger } from "./UI/Hamburger";
-import { Map } from "./Map/Map";
-import { Controls } from "./Controls/Controls";
+import { Hamburger, Div100vh } from "./components/UI";
+import { Map } from "./components/Map/Map";
+import {
+  Controls,
+  ControlsSectionWithDangersList,
+  ControlsSectionWithExtingushersList,
+  ControlsSectionWithPointsList,
+  ControlsSectionWithWarningsList,
+  Modal,
+} from "./components/Controls/";
 
 function App() {
- 
   return (
-    <div className="app-container">
+    <Div100vh className="app-container">
       <Hamburger />
-      <Map/>
-      <Controls />
-    </div>
+      <Map />
+      <Controls>
+        <Modal />
+        <ControlsSectionWithWarningsList />
+        <ControlsSectionWithDangersList />
+        <ControlsSectionWithPointsList />
+        <ControlsSectionWithExtingushersList />
+      </Controls>
+    </Div100vh>
   );
 }
 

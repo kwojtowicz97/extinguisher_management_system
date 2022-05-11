@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { appContext } from "../store/appContext";
-import { toggleHamburer } from "../actions/ui";
+import { appContext } from "../../context/store/appContext";
+import { toggleHamburer } from "../../context/actions/ui";
 
 export const Hamburger = ({ className }) => {
   const { hamburgerDispatch } = useContext(appContext);

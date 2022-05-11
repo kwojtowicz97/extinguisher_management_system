@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { appContext } from "../store/appContext";
+import { appContext } from "../../context/store/appContext";
 
-export const Controls = ({ isHamburgerActive, children }) => {
+const Controls = ({ children }) => {
   const { hamburgerState } = useContext(appContext);
   return (
     <div
@@ -9,3 +9,5 @@ export const Controls = ({ isHamburgerActive, children }) => {
     >{children}</div>
   );
 };
+
+export default Controls
