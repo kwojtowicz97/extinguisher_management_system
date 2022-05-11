@@ -1,6 +1,7 @@
 import {
   ADD_NEW_POINT_MODAL,
   ADD_NEW_EXTINGUISHER_MODAL,
+  INFO_MODAL,
 } from "../../context/reducers";
 import { hideModal } from "../../context/actions/ui";
 
@@ -10,9 +11,10 @@ import { appContext } from "../../context/store/appContext";
 export const Modal = () => {
   const appCtx = useContext(appContext);
   const { modalState, modalDispatch } = appCtx;
+  const { modal, info } = modalState;
 
   const setModalDiv = () => {
-    switch (modalState.modal) {
+    switch (modal) {
       case ADD_NEW_POINT_MODAL:
         return (
           <>
@@ -25,6 +27,13 @@ export const Modal = () => {
           <>
             <div className="modal-header">Add New Extinguisher</div>
             <NewExtinguisherForm />
+          </>
+        );
+      case INFO_MODAL:
+        return (
+          <>
+            <div className="modal-header">Warning</div>
+            <Info info={info} />
           </>
         );
     }
@@ -49,6 +58,6 @@ const NewExtinguisherForm = () => {
   return <div>New Point Form</div>;
 };
 
-const Info = () => {
-  return <div>Info</div>;
+const Info = ({ info }) => {
+  return <div>{info}</div>;
 };

@@ -8,6 +8,7 @@ import {
 
 export const ADD_NEW_POINT_MODAL = "New Point Modal";
 export const ADD_NEW_EXTINGUISHER_MODAL = "New Extinguisher Modal";
+export const INFO_MODAL = "Info Modal";
 
 export const hamburgerReducer = (state, action) => {
   const { type } = action;
@@ -20,7 +21,7 @@ export const hamburgerReducer = (state, action) => {
   }
 };
 
-export const modalReducer = (state, action) => {
+export const modalReducer = (_state, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -29,7 +30,11 @@ export const modalReducer = (state, action) => {
     case SHOW_MODAL_ADD_NEW_EXTINGUISHER:
       return { isModal: true, modal: ADD_NEW_EXTINGUISHER_MODAL };
     case SHOW_MODAL_INFO:
-      return { isModal: true, modal: ADD_NEW_EXTINGUISHER_MODAL, info: payload || "" };
+      return {
+        isModal: true,
+        modal: ADD_NEW_EXTINGUISHER_MODAL,
+        info: payload || "",
+      };
     case HIDE_MODAL:
       return { isModal: false, modal: null };
     default:
