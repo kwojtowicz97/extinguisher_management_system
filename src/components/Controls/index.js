@@ -7,4 +7,4 @@ export {
   ControlsSectionWithDangersList,
 } from "./ControlsSection";
 
-export {Modal} from "./Modal"
+export {Modal} from "../UI/Modal"
