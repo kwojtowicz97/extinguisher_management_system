@@ -8,6 +8,8 @@ import { hideModal } from "../../context/actions/ui";
 import { useContext } from "react";
 import { appContext } from "../../context/store/appContext";
 
+import { NewExtinguisherForm, NewPointForm, Info } from "./Modals";
+
 export const Modal = () => {
   const appCtx = useContext(appContext);
   const { modalState, modalDispatch } = appCtx;
@@ -50,14 +52,7 @@ export const Modal = () => {
   );
 };
 
-const NewPointForm = () => {
-  return <div>New Point Form</div>;
-};
 
-const NewExtinguisherForm = () => {
-  return <div>New Point Form</div>;
-};
 
-const Info = ({ info }) => {
-  return <div>{info}</div>;
-};
+
+

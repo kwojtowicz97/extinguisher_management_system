@@ -6,12 +6,15 @@ import { appContext } from "./context/store/appContext";
 import { Hamburger, Div100vh } from "./components/UI";
 import { Map } from "./components/Map/Map";
 import { Controls, ControlsSection, Modal } from "./components/Controls/";
-import { showModalNewPoint, showModalNewExtinguisher } from "./context/actions/ui";
-
+import {
+  showModalNewPoint,
+  showModalNewExtinguisher,
+} from "./context/actions/ui";
+import { ExtinguishersList } from "./components/Controls/lists";
 
 function App() {
   const appCtx = useContext(appContext);
-  const {modalState, modalDispatch} = appCtx
+  const { modalState, modalDispatch } = appCtx;
   const { isModal } = modalState;
 
   return (
@@ -34,7 +37,9 @@ function App() {
             btnTitle: "Add new Extinguisher",
             btnOnClick: () => modalDispatch(showModalNewExtinguisher()),
           }}
-        ></ControlsSection>
+        >
+          <ExtinguishersList />
+        </ControlsSection>
       </Controls>
       {isModal && <Modal />}
     </Div100vh>

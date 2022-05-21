@@ -17,7 +17,6 @@ body {
 
 .map-container {
   flex: 7 0;
-  background: red;
   height: 100%;
 }
 
@@ -48,7 +47,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 50%;
+  min-width: 25%;
   min-height: 30%;
   background: white;
   /* border: 1px solid blue; */
