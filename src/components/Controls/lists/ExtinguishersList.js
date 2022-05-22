@@ -20,8 +20,12 @@ export const ExtinguishersList = () => {
   }, [extinguishersState, sortByState, searchPattern, sortDir, setConfig]);
 
   const searchInputHandler = (e) => {
-    setSearchPattern(e.target.value)
-  }
+    setSearchPattern(e.target.value);
+  };
+
+  const sortByHandler = (e) => {
+    setSortByState(e.target.value);
+  };
 
   return (
     <div>
@@ -32,7 +36,7 @@ export const ExtinguishersList = () => {
       ></input>
       <br />
       <label htmlFor="sortOptions">Sort by</label>
-      <select defaultValue="default" id="sortOptions">
+      <select value={sortByState} onChange={sortByHandler} id="sortOptions">
         <option value="default">Default</option>
         <option value="producer">Producer</option>
         <option value="type">Type</option>

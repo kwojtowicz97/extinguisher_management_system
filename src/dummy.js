@@ -1,5 +1,23 @@
 export const dummyExtinguishers = [
   {
+    id: "9fd1e8d2-7a4d-4e49-a73d-0d7e5d7fd814",
+    producer: "OGNIOCHRON",
+    type: "GP-4x",
+    productionDate: "2020-01-01",
+    inspectionDate: "2022-01-01",
+    overhaulDate: "2020-01-01",
+    isUsed: false,
+  },
+  {
+    id: "95d1esd2-7a4d-4e49-a73d-0d7e5d7fd814",
+    producer: "OGNIOCHRON",
+    type: "GP-4x",
+    productionDate: "2020-01-01",
+    inspectionDate: "2022-01-01",
+    overhaulDate: "2020-01-01",
+    isUsed: false,
+  },
+  {
     id: "95d1e8d2-7a4d-4e49-a73d-0d7e5d7fd814",
     producer: "OGNIOCHRON",
     type: "GP-4x",

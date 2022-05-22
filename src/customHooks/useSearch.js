@@ -5,7 +5,7 @@ export const useSearch = (defaultList) => {
   const [sortedExtinguishers, setSortedExtinguishers] = useState(defaultList);
   const [config, setConfig] = useState({
     list: defaultList,
-    sortBy: "producer",
+    sortBy: "default",
     sortDesc: false,
     searchPattern: "",
   });
@@ -28,6 +28,12 @@ export const useSearch = (defaultList) => {
 
       filteredList = fuse.search(pattern).map((element) => element.item);
     }
+
+    if (config.sortBy !== "default" ) {
+        const {sortBy} = config
+        filteredList.sort((a, b) => (a[sortBy] > b[sortBy] ? 1 : -1));
+    }
+    
     setSortedExtinguishers(filteredList)
   }, [config.list, config.searchPattern, config.sortBy, config.sortDesc]);
 
