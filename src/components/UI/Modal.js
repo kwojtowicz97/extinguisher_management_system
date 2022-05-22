@@ -38,6 +38,8 @@ export const Modal = () => {
             <Info info={info} />
           </>
         );
+      default:
+        return;
     }
   };
 
@@ -51,8 +53,3 @@ export const Modal = () => {
     </>
   );
 };
-
-
-
-
-
