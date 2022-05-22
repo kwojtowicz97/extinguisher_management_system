@@ -7,6 +7,6 @@ export const ExtinguishersList = () => {
     const { extinguishersState } = appCtx;
 
     return (<ul>
-        {extinguishersState.map(extinguisher => <li>{`${extinguisher.producer} ${extinguisher.type}`}</li>)}
+        {extinguishersState.map(extinguisher => <li key={extinguisher.id}>{`${extinguisher.producer} ${extinguisher.type}`}</li>)}
     </ul>)
 }
