@@ -9,9 +9,10 @@ export const NewExtinguisherForm = () => {
   const { extinguishersDispatch, modalDispatch } = appCtx;
   const [producerState, setProducer] = useState("");
   const [typeState, setType] = useState("");
+  const [agentState, setAgent] = useState("");
   const [prodDateState, setProdDate] = useState("");
   const [inspDateState, setInspDate] = useState("");
-  const [inspDateCheckbox, setInspDateCheckbox] = useState(false)
+  const [inspDateCheckbox, setInspDateCheckbox] = useState(false);
   const [ovhlDateState, setOvhlDate] = useState("");
   const [ovhlDateCheckbox, setOvhlDateCheckbox] = useState(false);
 
@@ -20,6 +21,9 @@ export const NewExtinguisherForm = () => {
   };
   const typeChangeHandler = (e) => {
     setType(e.target.value);
+  };
+  const agentChangeHandler = (e) => {
+    setAgent(e.target.value);
   };
   const prodDateChangeHandler = (e) => {
     setProdDate(e.target.value);
@@ -66,6 +70,7 @@ export const NewExtinguisherForm = () => {
             required
           ></input>
         </div>
+
         <div>
           <label htmlFor="type">Type</label>
           <input
@@ -75,6 +80,21 @@ export const NewExtinguisherForm = () => {
             onChange={typeChangeHandler}
             required
           ></input>
+        </div>
+        <div>
+          <label htmlFor="agent">Extinguishing agent</label>
+          <select
+            id="agent"
+            type="text"
+            value={agentState}
+            onChange={agentChangeHandler}
+            required
+          >
+            <option>Water</option>
+            <option>AFFF foam</option>
+            <option>CO2</option>
+            <option>ABC powder</option>
+          </select>
         </div>
         <div>
           <label htmlFor="production-date">Production date</label>

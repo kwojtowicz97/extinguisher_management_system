@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import { appContext } from "../../../context/store/appContext";
 import { useSearch } from "../../../customHooks";
 
-export const ExtinguishersList = () => {
+export const ExtinguishersList = (props) => {
   const appCtx = useContext(appContext);
   const { extinguishersState } = appCtx;
   const [sortedExtinguishers, setConfig] = useSearch(extinguishersState);
@@ -30,6 +30,7 @@ export const ExtinguishersList = () => {
   return (
     <div>
       <input
+        placeholder="search"
         type="text"
         value={searchPattern}
         onChange={searchInputHandler}
@@ -45,7 +46,10 @@ export const ExtinguishersList = () => {
         <option value="overhaulDate">Overhaul Date</option>
       </select>
       <ul>
-        {sortedExtinguishers.map((extinguisher) => (
+        {(props.filteredAgent === "Any"
+          ? sortedExtinguishers
+          : sortedExtinguishers.filter((ex) => ex.agent === props.filteredAgent)
+        ).map((extinguisher) => (
           <li
             key={extinguisher.id}
           >{`${extinguisher.producer} ${extinguisher.type}`}</li>

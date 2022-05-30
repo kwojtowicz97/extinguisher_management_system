@@ -24,6 +24,10 @@ export const AppProvider = ({ children }) => {
     extinguishersReducer,
     dummyExtinguishers
   );
+  const [newPoint, newPointDispatch] = useReducer(newPointReducer, {
+    agent: null,
+    extinguisher: null,
+  });
 
   const value = {
     markersState,

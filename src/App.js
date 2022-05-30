@@ -38,7 +38,7 @@ function App() {
             btnOnClick: () => modalDispatch(showModalNewExtinguisher()),
           }}
         >
-          <ExtinguishersList />
+          <ExtinguishersList filteredAgent="Any"/>
         </ControlsSection>
       </Controls>
       {isModal && <Modal />}
