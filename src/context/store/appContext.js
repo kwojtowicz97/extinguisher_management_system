@@ -4,6 +4,7 @@ import {
   extinguishersReducer,
   hamburgerReducer,
   modalReducer,
+  newPointReducer
 } from "../reducers";
 
 import { dummyExtinguishers } from "../../dummy";
@@ -24,8 +25,8 @@ export const AppProvider = ({ children }) => {
     extinguishersReducer,
     dummyExtinguishers
   );
-  const [newPoint, newPointDispatch] = useReducer(newPointReducer, {
-    agent: null,
+  const [newPointState, newPointDispatch] = useReducer(newPointReducer, {
+    agent: "Any",
     extinguisher: null,
   });
 
@@ -34,10 +35,12 @@ export const AppProvider = ({ children }) => {
     extinguishersState,
     hamburgerState,
     modalState,
+    newPointState,
     markersDispatch,
     extinguishersDispatch,
     hamburgerDispatch,
     modalDispatch,
+    newPointDispatch,
   };
 
   return <appContext.Provider value={value}>{children}</appContext.Provider>;

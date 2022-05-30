@@ -5,12 +5,19 @@ const markersReducer = (state, action) => {
 
   switch (type) {
     case ADD_MARKER:
+      const {
+        event,
+        newPoint: { agent, extinguisher },
+      } = payload;
       const newMarker = {
+        agent,
+        extinguisher,
         id: Math.random(),
-        lat: payload.latlng.lat,
-        lng: payload.latlng.lng,
+        lat: event.latlng.lat,
+        lng: event.latlng.lng,
       };
       return [...state, newMarker];
+
     default:
       throw new Error("[marker] invalid action");
   }

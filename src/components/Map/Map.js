@@ -3,14 +3,17 @@ import { LatLngBounds } from "leaflet";
 import { useContext } from "react";
 import { appContext } from "../../context/store/appContext";
 import { addMarker } from "../../context/actions/markers";
+import { endAddingPoint } from "../../context/actions/ui";
 
 const bounds = new LatLngBounds([0, 0], [40.773941, -74.12544]);
 
 const MapObject = () => {
-  const { markersDispatch } = useContext(appContext);
+  const { markersDispatch, modalState, modalDispatch, newPointState } = useContext(appContext);
 
   useMapEvent("click", (e) => {
-    markersDispatch(addMarker(e));
+    if (!modalState.isChooseLocation) return;
+    markersDispatch(addMarker(e, newPointState));
+    modalDispatch(endAddingPoint());
   });
 
   return null;
