@@ -50,12 +50,10 @@ export const ExtinguishersList = (props) => {
         <option value="overhaulDate">Overhaul Date</option>
       </select>
       <ul>
-        {(filteredAgent === "Any"
-          ? sortedExtinguishers
-          : sortedExtinguishers.filter((ex) => ex.agent === filteredAgent)
-        ).map((extinguisher) => (
+        {sortedExtinguishers.map((extinguisher) => (
           <li
-            onClick={() => onClick ? clickHandler(extinguisher.id) : null}
+            className={`${extinguisher.agent === filteredAgent && "matching"}`}
+            onClick={() => (onClick ? clickHandler(extinguisher.id) : null)}
             key={extinguisher.id}
           >{`${extinguisher.producer} ${extinguisher.type}`}</li>
         ))}
