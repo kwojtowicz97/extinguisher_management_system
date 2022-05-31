@@ -5,6 +5,7 @@ import { appContext } from "../../context/store/appContext";
 import { addMarker } from "../../context/actions/markers";
 import { endAddingPoint } from "../../context/actions/ui";
 import { clearState } from "../../context/actions/newPoint";
+import { setIsUsed } from "../../context/actions/extinguisher";
 
 const bounds = new LatLngBounds([0, 0], [40.773941, -74.12544]);
 
@@ -15,11 +16,15 @@ const MapObject = () => {
     modalDispatch,
     newPointState,
     newPointDispatch,
+    extinguishersDispatch,
   } = useContext(appContext);
+
+  const { extinguisher } = newPointState;
 
   useMapEvent("click", (e) => {
     if (!modalState.isChooseLocation) return;
     markersDispatch(addMarker(e, newPointState));
+    extinguishersDispatch(setIsUsed(extinguisher));
     modalDispatch(endAddingPoint());
     newPointDispatch(clearState());
   });
