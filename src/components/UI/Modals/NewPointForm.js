@@ -37,15 +37,14 @@ export const NewPointForm = () => {
           <ExtinguishersList
             filteredAgent={newPointState.agent}
             onClick={chooseExtinguisherHandler}
+            choosenExtiguisher={newPointState.extinguisher}
           />
         </div>
         {/* <select id="extinguisher-select">
             <option>None</option>
             {extinguishersState.map(ex => <option key={ex.id}>{`${ex.producer} ${ex.type}`}</option>)}
         </select> */}
-        <button type="submit">
-          Choose location
-        </button>
+        <button type="submit">Choose location</button>
         {modalState.info && <p>{modalState.info}</p>}
       </form>
     </div>

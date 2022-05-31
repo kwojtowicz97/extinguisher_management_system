@@ -9,13 +9,19 @@ import { Controls, ControlsSection, Modal } from "./components/Controls/";
 import {
   showModalNewPoint,
   showModalNewExtinguisher,
+  toggleHamburer,
 } from "./context/actions/ui";
 import { ExtinguishersList } from "./components/Controls/lists";
 
 function App() {
   const appCtx = useContext(appContext);
-  const { modalState, modalDispatch } = appCtx;
+  const { modalState, modalDispatch, hamburgerDispatch } = appCtx;
   const { isModal } = modalState;
+
+  const addNewPointBtnHandler = () => {
+    modalDispatch(showModalNewPoint());
+    hamburgerDispatch(toggleHamburer());
+  };
 
   return (
     <Div100vh className="app-container">
@@ -28,7 +34,7 @@ function App() {
           title={"Points"}
           button={{
             btnTitle: "Add new Point",
-            btnOnClick: () => modalDispatch(showModalNewPoint()),
+            btnOnClick: addNewPointBtnHandler,
           }}
         ></ControlsSection>
         <ControlsSection
@@ -38,7 +44,7 @@ function App() {
             btnOnClick: () => modalDispatch(showModalNewExtinguisher()),
           }}
         >
-          <ExtinguishersList filteredAgent="Any"/>
+          <ExtinguishersList filteredAgent="Any" />
         </ControlsSection>
       </Controls>
       {isModal && <Modal />}

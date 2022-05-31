@@ -3,7 +3,7 @@ import { appContext } from "../../../context/store/appContext";
 import { useSearch } from "../../../customHooks";
 
 export const ExtinguishersList = (props) => {
-  const { filteredAgent, onClick } = props;
+  const { filteredAgent, onClick, choosenExtiguisher } = props;
   const appCtx = useContext(appContext);
   const { extinguishersState } = appCtx;
   const [sortedExtinguishers, setConfig] = useSearch(extinguishersState);
@@ -52,7 +52,9 @@ export const ExtinguishersList = (props) => {
       <ul>
         {sortedExtinguishers.map((extinguisher) => (
           <li
-            className={`${extinguisher.agent === filteredAgent && "matching"}`}
+            className={`${
+              extinguisher.agent === filteredAgent ? "matching" : ""
+            } ${choosenExtiguisher === extinguisher.id ? "selected" : ""}`}
             onClick={() => (onClick ? clickHandler(extinguisher.id) : null)}
             key={extinguisher.id}
           >{`${extinguisher.producer} ${extinguisher.type}`}</li>

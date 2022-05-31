@@ -4,16 +4,24 @@ import { useContext } from "react";
 import { appContext } from "../../context/store/appContext";
 import { addMarker } from "../../context/actions/markers";
 import { endAddingPoint } from "../../context/actions/ui";
+import { clearState } from "../../context/actions/newPoint";
 
 const bounds = new LatLngBounds([0, 0], [40.773941, -74.12544]);
 
 const MapObject = () => {
-  const { markersDispatch, modalState, modalDispatch, newPointState } = useContext(appContext);
+  const {
+    markersDispatch,
+    modalState,
+    modalDispatch,
+    newPointState,
+    newPointDispatch,
+  } = useContext(appContext);
 
   useMapEvent("click", (e) => {
     if (!modalState.isChooseLocation) return;
     markersDispatch(addMarker(e, newPointState));
     modalDispatch(endAddingPoint());
+    newPointDispatch(clearState());
   });
 
   return null;

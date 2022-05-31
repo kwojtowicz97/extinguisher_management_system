@@ -1,3 +1,7 @@
+html {
+  background-color: rgb(0, 13, 89);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -95,7 +99,10 @@ body {
   }
 }
 
-
 li.matching {
   color: green;
+}
+
+li.selected {
+  font-weight: bold;
 }
