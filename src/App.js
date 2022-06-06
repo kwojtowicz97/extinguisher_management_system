@@ -11,7 +11,7 @@ import {
   showModalNewExtinguisher,
   toggleHamburer,
 } from "./context/actions/ui";
-import { ExtinguishersList } from "./components/Controls/lists";
+import { ExtinguishersList, PointsList } from "./components/Controls/lists";
 
 function App() {
   const appCtx = useContext(appContext);
@@ -36,7 +36,9 @@ function App() {
             btnTitle: "Add new Point",
             btnOnClick: addNewPointBtnHandler,
           }}
-        ></ControlsSection>
+        >
+          <PointsList filteredAgent="Any" shouldShowOnlyUnused={false} />
+        </ControlsSection>
         <ControlsSection
           title={"Extingushers"}
           button={{
@@ -44,7 +46,7 @@ function App() {
             btnOnClick: () => modalDispatch(showModalNewExtinguisher()),
           }}
         >
-          <ExtinguishersList filteredAgent="Any" />
+          <ExtinguishersList filteredAgent="Any" shouldShowOnlyUnused={false} />
         </ControlsSection>
       </Controls>
       {isModal && <Modal />}

@@ -10,6 +10,7 @@ const markersReducer = (state, action) => {
         newPoint: { agent, extinguisher },
       } = payload;
       const newMarker = {
+        number: 1,
         agent,
         extinguisher,
         id: Math.random(),
