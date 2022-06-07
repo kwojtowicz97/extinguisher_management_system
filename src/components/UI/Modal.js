@@ -2,18 +2,19 @@ import {
   ADD_NEW_POINT_MODAL,
   ADD_NEW_EXTINGUISHER_MODAL,
   INFO_MODAL,
+  POINT_MODAL,
 } from "../../context/reducers";
 import { hideModal } from "../../context/actions/ui";
 
 import { useContext } from "react";
 import { appContext } from "../../context/store/appContext";
 
-import { NewExtinguisherForm, NewPointForm, Info } from "./Modals";
+import { NewExtinguisherForm, NewPointForm, Info, PointModal } from "./Modals";
 
 export const Modal = () => {
   const appCtx = useContext(appContext);
   const { modalState, modalDispatch } = appCtx;
-  const { modal, info } = modalState;
+  const { modal, info, marker } = modalState;
 
   const setModalDiv = () => {
     switch (modal) {
@@ -22,6 +23,13 @@ export const Modal = () => {
           <>
             <div className="modal-header">Add New Point</div>
             <NewPointForm />
+          </>
+        );
+      case POINT_MODAL:
+        return (
+          <>
+            <div className="modal-header">Point Data</div>
+            <PointModal marker={marker}/>
           </>
         );
       case ADD_NEW_EXTINGUISHER_MODAL:

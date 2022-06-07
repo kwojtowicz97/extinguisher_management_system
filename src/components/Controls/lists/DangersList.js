@@ -14,11 +14,17 @@ export const DangersList = () => {
     const isIncomingInspection = nextInspection - new Date() < 0;
     return isIncomingInspection;
   });
+
+  const pointsWithNoExtinguisher = markersState.filter(
+    (point) => point.extinguisher
+  );
+
   return (
-    <li>
+    <ul>
+      <li>Inspection Overdue</li>
       {extinguishersInspectionOverdue.map((e) => (
-        <ul>{e.id}</ul>
+        <li>{e.id}</li>
       ))}
-    </li>
+    </ul>
   );
 };

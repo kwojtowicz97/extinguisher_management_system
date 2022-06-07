@@ -1,9 +1,15 @@
-import { useMapEvent, MapContainer, ImageOverlay, Marker } from "react-leaflet";
+import {
+  useMapEvent,
+  MapContainer,
+  ImageOverlay,
+  Marker,
+  Popup,
+} from "react-leaflet";
 import { LatLngBounds } from "leaflet";
 import { useContext } from "react";
 import { appContext } from "../../context/store/appContext";
 import { addMarker } from "../../context/actions/markers";
-import { endAddingPoint } from "../../context/actions/ui";
+import { endAddingPoint, showPointModal } from "../../context/actions/ui";
 import { clearState } from "../../context/actions/newPoint";
 import { setIsUsed } from "../../context/actions/extinguisher";
 
@@ -33,7 +39,7 @@ const MapObject = () => {
 };
 
 export const Map = () => {
-  const { markersState } = useContext(appContext);
+  const { markersState, modalDispatch } = useContext(appContext);
   return (
     <div className="map-container">
       <MapContainer center={[20.505, -40]} zoom={5} scrollWheelZoom={true}>
@@ -45,7 +51,12 @@ export const Map = () => {
           zIndex={100}
         />
         {markersState.map((marker) => (
-          <Marker position={[marker.lat, marker.lng]} />
+          <Marker
+            position={[marker.lat, marker.lng]}
+            eventHandlers={{
+              click: () => modalDispatch(showPointModal(marker)),
+            }}
+          ></Marker>
         ))}
       </MapContainer>
     </div>

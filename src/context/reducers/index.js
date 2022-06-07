@@ -7,4 +7,5 @@ export {
   ADD_NEW_POINT_MODAL,
   ADD_NEW_EXTINGUISHER_MODAL,
   INFO_MODAL,
+  POINT_MODAL
 } from "./ui";

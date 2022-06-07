@@ -7,7 +7,7 @@ import {
   newPointReducer
 } from "../reducers";
 
-import { dummyExtinguishers } from "../../dummy";
+import { dummyExtinguishers, dummyPoints } from "../../dummy";
 
 export const appContext = React.createContext();
 
@@ -20,7 +20,7 @@ export const AppProvider = ({ children }) => {
     hamburgerReducer,
     false
   );
-  const [markersState, markersDispatch] = useReducer(markersReducer, []);
+  const [markersState, markersDispatch] = useReducer(markersReducer, dummyPoints);
   const [extinguishersState, extinguishersDispatch] = useReducer(
     extinguishersReducer,
     dummyExtinguishers

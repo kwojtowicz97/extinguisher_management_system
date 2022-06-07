@@ -28,7 +28,8 @@ body {
   flex: 3 0;
   background: rgb(0, 13, 89);
   position: relative;
-  overflow: scroll;
+  overflow: hidden;
+  overflow-y: scroll;
   height: 100%;
 }
 

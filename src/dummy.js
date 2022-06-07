@@ -6,7 +6,7 @@ export const dummyExtinguishers = [
     type: "GP-4x",
     agent: "ABC powder",
     productionDate: "2020-01-01",
-    inspectionDate: "2021-02-20",
+    inspectionDate: "2021-06-01",
     overhaulDate: "2020-01-01",
     isUsed: false,
   },
@@ -17,7 +17,7 @@ export const dummyExtinguishers = [
     type: "GP-4x",
     agent: "ABC powder",
     productionDate: "2020-01-01",
-    inspectionDate: "2022-01-01",
+    inspectionDate: "2020-01-01",
     overhaulDate: "2020-01-01",
     isUsed: false,
   },
@@ -50,8 +50,28 @@ export const dummyExtinguishers = [
     type: "GP-4",
     agent: "Water",
     productionDate: "2020-01-01",
-    inspectionDate: "2022-01-01",
+    inspectionDate: "2021-06-10",
     overhaulDate: "2020-01-01",
     isUsed: false,
+  },
+];
+
+
+export const dummyPoints = [
+  {
+    number: 1,
+    agent: "Water",
+    extinguisher: "9fd1e8d2-7a4d-4e49-a73d-0d7e5d7fd814",
+    id: 0.8412814400825315,
+    lat: 22.51255695405145,
+    lng: -37.67153346555282,
+  },
+  {
+    number: 1,
+    agent: "AFFF foam",
+    extinguisher: "ab62ad85-e6d7-4919-ad91-41fe164cdad6",
+    id: 0.06953204546931846,
+    lat: 19.642587534013032,
+    lng: -34.50946257996719,
   },
 ];

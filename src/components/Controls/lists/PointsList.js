@@ -1,11 +1,12 @@
 import { useContext, useState, useEffect } from "react";
 import { appContext } from "../../../context/store/appContext";
 import { useSearch } from "../../../customHooks";
+import { showPointModal } from "../../../context/actions/ui";
 
 export const PointsList = (props) => {
-  const { filteredAgent, onClick, choosenExtiguisher } = props;
+  const { filteredAgent, choosenExtiguisher } = props;
   const appCtx = useContext(appContext);
-  const { markersState, extinguisherState } = appCtx;
+  const { markersState, modalDispatch } = appCtx;
   const [sortedPoints, setConfig] = useSearch(markersState);
   const [sortByState, setSortByState] = useState("default");
   const [sortDir, setSortDir] = useState("desc");
@@ -28,7 +29,7 @@ export const PointsList = (props) => {
     setSortByState(e.target.value);
   };
   const clickHandler = (id) => {
-    onClick(id);
+    modalDispatch(showPointModal(id));
   };
 
   return (
@@ -54,7 +55,7 @@ export const PointsList = (props) => {
               className={`${point.agent === filteredAgent ? "matching" : ""} ${
                 choosenExtiguisher === point.id ? "selected" : ""
               }`}
-              onClick={() => (onClick ? clickHandler(point.id) : null)}
+              onClick={() => (clickHandler(point))}
               key={point.id}
             >{`${point.number} ${point.agent} ${point.extinguisher}`}</li>
           );
