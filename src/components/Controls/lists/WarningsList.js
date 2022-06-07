@@ -35,7 +35,7 @@ export const WarningsList = () => {
         ))}
       </ul>
       <ul>
-        <li>Wrong extinguisher</li>
+        <li>Wrong extinguishing agent</li>
         {pointsWithWrongAgents.map((e) => (
           <li>{e.id}</li>
         ))}

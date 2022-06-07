@@ -1,4 +1,8 @@
-import { ADD_MARKER, REMOVE_MARKER } from "../actions/markers";
+import {
+  ADD_MARKER,
+  REMOVE_MARKER,
+  CHANGE_EXTINGUISHER,
+} from "../actions/markers";
 
 const markersReducer = (state, action) => {
   const { type, payload } = action;
@@ -21,6 +25,13 @@ const markersReducer = (state, action) => {
 
     case REMOVE_MARKER:
       return state.filter((mkr) => mkr.id !== payload);
+
+    case CHANGE_EXTINGUISHER:
+      const { marker, newExtinguiser } = payload;
+      const index = state.findIndex((mkr) => mkr.id === marker.id);
+      const newState = [...state];
+      newState[index].extinguisher = newExtinguiser;
+      return newState;
     default:
       throw new Error("[marker] invalid action");
   }
