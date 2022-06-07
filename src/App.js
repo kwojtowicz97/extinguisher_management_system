@@ -11,7 +11,12 @@ import {
   showModalNewExtinguisher,
   toggleHamburer,
 } from "./context/actions/ui";
-import { ExtinguishersList, PointsList } from "./components/Controls/lists";
+import {
+  ExtinguishersList,
+  PointsList,
+  WarningsList,
+  DangersList,
+} from "./components/Controls/lists";
 
 function App() {
   const appCtx = useContext(appContext);
@@ -28,8 +33,12 @@ function App() {
       <Hamburger />
       <Map />
       <Controls>
-        <ControlsSection title={"Warnings"}></ControlsSection>
-        <ControlsSection title={"Dangers"}></ControlsSection>
+        <ControlsSection title={"Warnings"}>
+          <WarningsList />
+        </ControlsSection>
+        <ControlsSection title={"Dangers"}>
+          <DangersList />
+        </ControlsSection>
         <ControlsSection
           title={"Points"}
           button={{

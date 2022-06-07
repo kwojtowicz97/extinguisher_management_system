@@ -6,12 +6,12 @@ export const dummyExtinguishers = [
     type: "GP-4x",
     agent: "ABC powder",
     productionDate: "2020-01-01",
-    inspectionDate: "2022-01-01",
+    inspectionDate: "2021-02-20",
     overhaulDate: "2020-01-01",
     isUsed: false,
   },
   {
-    id: "95d1esd2-7a4d-4e49-a73d-0d7e5d7fd814",
+    id: "3241esd2-7a4d-4e49-a73d-0d7e5d7fd814",
     producer: "OGNIOCHRON",
     seal: "002",
     type: "GP-4x",
@@ -22,7 +22,7 @@ export const dummyExtinguishers = [
     isUsed: false,
   },
   {
-    id: "95d1e8d2-7a4d-4e49-a73d-0d7e5d7fd814",
+    id: "95d1e8d2-7a4d-4e49-a73d-0d7e5d7fd8fdsf",
     producer: "OGNIOCHRON",
     seal: "003",
     type: "GP-4x",
