@@ -49,7 +49,6 @@ export const PointsList = (props) => {
       </select>
       <ul>
         {sortedPoints.map((point) => {
-          const assignedExtinguisher = 0;
           return (
             <li
               className={`${point.agent === filteredAgent ? "matching" : ""} ${

@@ -1,4 +1,4 @@
-import { ADD_MARKER } from "../actions/markers";
+import { ADD_MARKER, REMOVE_MARKER } from "../actions/markers";
 
 const markersReducer = (state, action) => {
   const { type, payload } = action;
@@ -19,6 +19,8 @@ const markersReducer = (state, action) => {
       };
       return [...state, newMarker];
 
+    case REMOVE_MARKER:
+      return state.filter((mkr) => mkr.id !== payload);
     default:
       throw new Error("[marker] invalid action");
   }
