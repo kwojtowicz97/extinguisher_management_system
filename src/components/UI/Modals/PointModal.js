@@ -34,6 +34,7 @@ export const PointModal = (props) => {
   return (
     <div>
       <p>{id}</p>
+      <p>{`Default extinguishing agent: ${agent}`}</p>
       <p>
         {assignedExtinguisher ? assignedExtinguisher.id : "No Extinguisher"}
       </p>

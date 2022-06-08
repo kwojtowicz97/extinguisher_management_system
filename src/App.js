@@ -10,6 +10,7 @@ import {
   showModalNewPoint,
   showModalNewExtinguisher,
   toggleHamburer,
+  showExtinguisherModal,
 } from "./context/actions/ui";
 import {
   ExtinguishersList,
@@ -27,6 +28,10 @@ function App() {
     modalDispatch(showModalNewPoint());
     hamburgerDispatch(toggleHamburer());
   };
+
+  const showExtinguisherModalHandler = (extinguiserId) => {
+    modalDispatch(showExtinguisherModal(extinguiserId))
+  }
 
   return (
     <Div100vh className="app-container">
@@ -56,7 +61,7 @@ function App() {
             btnOnClick: () => modalDispatch(showModalNewExtinguisher()),
           }}
         >
-          <ExtinguishersList filteredAgent="Any" shouldShowOnlyUnused={false} />
+          <ExtinguishersList filteredAgent="Any" shouldShowOnlyUnused={false} onClick={showExtinguisherModalHandler}/>
         </ControlsSection>
       </Controls>
       {isModal && <Modal />}

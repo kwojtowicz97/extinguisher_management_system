@@ -50,9 +50,11 @@ export const ExtinguishersList = (props) => {
         <option value="overhaulDate">Overhaul Date</option>
       </select>
       <ul>
-        {isNull && <li onClick={() => (onClick ? clickHandler(null) : null)}>
-          No extinguisher
-        </li>}
+        {isNull && (
+          <li onClick={() => (onClick ? clickHandler(null) : null)}>
+            No extinguisher
+          </li>
+        )}
         {sortedExtinguishers.map((extinguisher) => (
           <li
             className={`${
@@ -60,7 +62,7 @@ export const ExtinguishersList = (props) => {
             } ${choosenExtiguisher === extinguisher.id ? "selected" : ""}`}
             onClick={() => (onClick ? clickHandler(extinguisher.id) : null)}
             key={extinguisher.id}
-          >{`${extinguisher.producer} ${extinguisher.type}`}</li>
+          >{`${extinguisher.producer} ${extinguisher.type} ${extinguisher.id}`}</li>
         ))}
       </ul>
     </div>

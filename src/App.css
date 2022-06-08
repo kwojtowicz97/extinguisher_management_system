@@ -31,6 +31,7 @@ body {
   overflow: hidden;
   overflow-y: scroll;
   height: 100%;
+  border-left: 1px solid black;
 }
 
 #hamburger {
@@ -108,4 +109,22 @@ li.matching {
 
 li.selected {
   font-weight: bold;
+}
+
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #ebebeb;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    background: #6d6d6d; 
 }

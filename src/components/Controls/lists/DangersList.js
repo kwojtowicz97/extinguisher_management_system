@@ -16,15 +16,23 @@ export const DangersList = () => {
   });
 
   const pointsWithNoExtinguisher = markersState.filter(
-    (point) => point.extinguisher
+    (point) => point.extinguisher === null
   );
 
   return (
-    <ul>
-      <li>Inspection Overdue</li>
-      {extinguishersInspectionOverdue.map((e) => (
-        <li key={`io-${e.id}`}>{e.id}</li>
-      ))}
-    </ul>
+    <div>
+      <ul>
+        <li>Inspection Overdue</li>
+        {extinguishersInspectionOverdue.map((e) => (
+          <li key={`io-${e.id}`}>{e.id}</li>
+        ))}
+      </ul>
+      <ul>
+        <li>No fire extinguisher</li>
+        {pointsWithNoExtinguisher.map((e) => (
+          <li key={`ne-${e.id}`}>{e.id}</li>
+        ))}
+      </ul>
+    </div>
   );
 };

@@ -7,6 +7,7 @@ export const HIDE_MODAL = "hide modal";
 export const CHECK_NEW_POINT_DATA = "check new point data";
 export const END_ADDING_POINT = "end adding point";
 export const SHOW_POINT_MODAL = "show modal - point modal";
+export const SHOW_EXTINGUISHER_MODAL = "show modal - extinguisher modal";
 
 export const toggleHamburer = () => ({ type: TOGGLE_HAMBURGER });
 
@@ -19,6 +20,11 @@ export const showModalNewExtinguisher = () => ({
 export const showPointModal = (marker) => ({
   type: SHOW_POINT_MODAL,
   payload: marker,
+});
+
+export const showExtinguisherModal = (extinguisherId) => ({
+  type: SHOW_EXTINGUISHER_MODAL,
+  payload: extinguisherId
 });
 
 export const showModalInfo = (information) => ({
