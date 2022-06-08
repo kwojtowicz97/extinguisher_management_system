@@ -40,6 +40,7 @@ export const NewExtinguisherForm = () => {
     const data = [
       producerState,
       typeState,
+      agentState,
       prodDateState,
       inspDateCheckbox && inspDateState,
       ovhlDateCheckbox && ovhlDateState,
@@ -48,6 +49,7 @@ export const NewExtinguisherForm = () => {
     const extinguisher = {
       producerState,
       typeState,
+      agentState,
       prodDateState,
       inspDateState,
       ovhlDateState,

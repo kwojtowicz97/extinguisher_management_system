@@ -10,6 +10,7 @@ const extinguishersReducer = (state, action) => {
       const {
         producerState,
         typeState,
+        agentState,
         prodDateState,
         inspDateState,
         ovhlDateState,
@@ -18,6 +19,7 @@ const extinguishersReducer = (state, action) => {
       const extinguisher = {
         id: newID(),
         producer: producerState,
+        agent: agentState,
         type: typeState,
         productionDate: prodDateState,
         inspectionDate: inspDateState,

@@ -45,13 +45,14 @@ export const Map = () => {
       <MapContainer center={[20.505, -40]} zoom={5} scrollWheelZoom={true}>
         <MapObject />
         <ImageOverlay
-          url="http://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg"
+          url="https://fpg.roomsketcher.com/image/level/178/2d/Large-Office-2D-Floor-Plan.jpg"
           bounds={bounds}
           opacity={1}
           zIndex={100}
         />
         {markersState.map((marker) => (
           <Marker
+            key={marker.id}
             position={[marker.lat, marker.lng]}
             eventHandlers={{
               click: () => modalDispatch(showPointModal(marker)),

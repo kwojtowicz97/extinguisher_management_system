@@ -26,7 +26,7 @@ body {
 
 .controls-container {
   flex: 3 0;
-  background: rgb(0, 13, 89);
+  background: rgb(236, 236, 236);
   position: relative;
   overflow: hidden;
   overflow-y: scroll;
@@ -44,6 +44,7 @@ body {
 .leaflet-container {
   height: 100%;
   z-index: 10;
+  background: white;
 }
 
 .modal {

@@ -17,27 +17,29 @@ export const WarningsList = () => {
     return isIncomingInspection;
   });
 
-    const pointsWithWrongAgents = markersState.filter((point) => {
-      const assignedExtinguisherToPoint = extinguishersState.find(
-        (ex) => ex.id === point.extinguisher
-      );
-      return assignedExtinguisherToPoint.agent !== point.agent;
-    });
+  const pointsWithExtinguisher = [...markersState].filter(
+    (point) => point.extinguisher !== null
+  );
 
-
+  const pointsWithWrongAgents = pointsWithExtinguisher.filter((point) => {
+    const assignedExtinguisherToPoint = extinguishersState.find(
+      (ex) => ex.id === point.extinguisher
+    );
+    return assignedExtinguisherToPoint.agent !== point.agent;
+  });
 
   return (
     <div>
       <ul>
         <li>Incoming inspection</li>
         {extinguishersToInspect.map((e) => (
-          <li>{e.id}</li>
+          <li key={`ii-${e.id}`}>{e.id}</li>
         ))}
       </ul>
       <ul>
         <li>Wrong extinguishing agent</li>
         {pointsWithWrongAgents.map((e) => (
-          <li>{e.id}</li>
+          <li key={`wa-${e.id}`}>{e.id}</li>
         ))}
       </ul>
     </div>

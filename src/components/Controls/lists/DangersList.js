@@ -23,7 +23,7 @@ export const DangersList = () => {
     <ul>
       <li>Inspection Overdue</li>
       {extinguishersInspectionOverdue.map((e) => (
-        <li>{e.id}</li>
+        <li key={`io-${e.id}`}>{e.id}</li>
       ))}
     </ul>
   );

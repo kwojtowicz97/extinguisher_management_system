@@ -34,7 +34,10 @@ export const PointModal = (props) => {
   return (
     <div>
       <p>{id}</p>
-      <p>{assignedExtinguisher.id}</p>
+      <p>
+        {assignedExtinguisher ? assignedExtinguisher.id : "No Extinguisher"}
+      </p>
+
       {!isChangingExtinguisher && (
         <button onClick={showExtinguisherList}>
           Change/Assign Extinguisher
@@ -42,6 +45,7 @@ export const PointModal = (props) => {
       )}
       {isChangingExtinguisher && (
         <ExtinguishersList
+          isNull={true}
           filteredAgent={agent}
           onClick={changeExtinguisherHandler}
         />

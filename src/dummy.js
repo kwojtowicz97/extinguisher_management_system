@@ -67,11 +67,19 @@ export const dummyPoints = [
     lng: -37.67153346555282,
   },
   {
-    number: 1,
+    number: 2,
     agent: "AFFF foam",
     extinguisher: "ab62ad85-e6d7-4919-ad91-41fe164cdad6",
     id: 0.06953204546931846,
     lat: 19.642587534013032,
     lng: -34.50946257996719,
+  },
+  {
+    number: 3,
+    agent: "AFFF foam",
+    extinguisher: null,
+    id: 0.2953204546931846,
+    lat: 15.642587534013032,
+    lng: -30.50946257996719,
   },
 ];
