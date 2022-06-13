@@ -42,7 +42,7 @@ export const Map = () => {
   const { markersState, modalDispatch } = useContext(appContext);
   return (
     <div className="map-container">
-      <MapContainer center={[20.505, -40]} zoom={5} scrollWheelZoom={true}>
+      <MapContainer center={[20.505, -40]} zoom={4} scrollWheelZoom={true}>
         <MapObject />
         <ImageOverlay
           url="https://fpg.roomsketcher.com/image/level/178/2d/Large-Office-2D-Floor-Plan.jpg"

@@ -7,13 +7,16 @@ import {
 import { hideModal } from "../../../context/actions/ui";
 import { useState } from "react";
 import { ExtinguishersList } from "../../Controls/lists";
+import { ExtinguisherModal } from "./ExtinguisherModal";
 
 export const PointModal = (props) => {
   const { marker } = props;
   const { id, agent } = marker;
   const appCtx = useContext(appContext);
   const { markersDispatch, modalDispatch, extinguishersState } = appCtx;
+  const [isMakeInspectionOverhaul, setMakeInspectionOverhaul] = useState(false)
   const [isChangingExtinguisher, setIsChangingExtinguisher] = useState(false);
+  
   const removeHandeler = () => {
     markersDispatch(removeMarker(id));
     modalDispatch(hideModal());
@@ -23,8 +26,15 @@ export const PointModal = (props) => {
   );
 
   const showExtinguisherList = () => {
-    setIsChangingExtinguisher(true);
+    setIsChangingExtinguisher((state) => !state);
+    setMakeInspectionOverhaul(false)
   };
+
+  const showExtinguisherCard = () => {
+    setMakeInspectionOverhaul(state => !state)
+    setIsChangingExtinguisher(false)
+  }
+
 
   const changeExtinguisherHandler = (extinguisher) => {
     markersDispatch(changeExtinguisher(marker, extinguisher));
@@ -39,11 +49,10 @@ export const PointModal = (props) => {
         {assignedExtinguisher ? assignedExtinguisher.id : "No Extinguisher"}
       </p>
 
-      {!isChangingExtinguisher && (
-        <button onClick={showExtinguisherList}>
-          Change/Assign Extinguisher
-        </button>
-      )}
+      <button onClick={showExtinguisherList}>Change/Assign Extinguisher</button>
+      {assignedExtinguisher && <button onClick={showExtinguisherCard}>Make Inspection/Overhaul</button>}
+
+      <button onClick={removeHandeler}>Delete Point</button>
       {isChangingExtinguisher && (
         <ExtinguishersList
           isNull={true}
@@ -51,7 +60,7 @@ export const PointModal = (props) => {
           onClick={changeExtinguisherHandler}
         />
       )}
-      <button onClick={removeHandeler}>Delete Point</button>
+      {isMakeInspectionOverhaul && <ExtinguisherModal extinguisherId={assignedExtinguisher.id}/>}
     </div>
   );
 };
