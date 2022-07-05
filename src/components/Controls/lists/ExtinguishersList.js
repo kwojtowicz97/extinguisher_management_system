@@ -17,6 +17,7 @@ export const ExtinguishersList = (props) => {
       sortBy: sortByState,
       sortDesc: sortDir,
       searchPattern: searchPattern,
+      keys:  ["producer", "type", "agent"]
     });
   }, [extinguishersState, sortByState, searchPattern, sortDir, setConfig]);
 
@@ -57,12 +58,14 @@ export const ExtinguishersList = (props) => {
         )}
         {sortedExtinguishers.map((extinguisher) => (
           <li
-            className={`${
+            className={`list-item ${
               extinguisher.agent === filteredAgent ? "matching" : ""
             } ${choosenExtiguisher === extinguisher.id ? "selected" : ""}`}
             onClick={() => (onClick ? clickHandler(extinguisher.id) : null)}
             key={extinguisher.id}
-          >{`${extinguisher.producer} ${extinguisher.type} ${extinguisher.id}`}</li>
+          >
+            <b>{`${extinguisher.producer} ${extinguisher.type}`}</b>
+          </li>
         ))}
       </ul>
     </div>

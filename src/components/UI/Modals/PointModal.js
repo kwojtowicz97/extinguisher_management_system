@@ -11,7 +11,7 @@ import { ExtinguisherModal } from "./ExtinguisherModal";
 
 export const PointModal = (props) => {
   const { marker } = props;
-  const { id, agent } = marker;
+  const { id, agent, name } = marker;
   const appCtx = useContext(appContext);
   const { markersDispatch, modalDispatch, extinguishersState } = appCtx;
   const [isMakeInspectionOverhaul, setMakeInspectionOverhaul] = useState(false)
@@ -43,14 +43,25 @@ export const PointModal = (props) => {
 
   return (
     <div>
-      <p>{id}</p>
-      <p>{`Default extinguishing agent: ${agent}`}</p>
       <p>
-        {assignedExtinguisher ? assignedExtinguisher.id : "No Extinguisher"}
+        <b>Point name: </b>
+        {name}
+      </p>
+      <p>
+        <b>Default extinguishing agent: </b>
+        {agent}
+      </p>
+      <p>
+        <b>Assigned extinguiser: </b>
+        {assignedExtinguisher
+          ? `${assignedExtinguisher.producer} ${assignedExtinguisher.type}`
+          : "No Extinguisher"}
       </p>
 
       <button onClick={showExtinguisherList}>Change/Assign Extinguisher</button>
-      {assignedExtinguisher && <button onClick={showExtinguisherCard}>Make Inspection/Overhaul</button>}
+      {assignedExtinguisher && (
+        <button onClick={showExtinguisherCard}>Make Inspection/Overhaul</button>
+      )}
 
       <button onClick={removeHandeler}>Delete Point</button>
       {isChangingExtinguisher && (
@@ -60,7 +71,9 @@ export const PointModal = (props) => {
           onClick={changeExtinguisherHandler}
         />
       )}
-      {isMakeInspectionOverhaul && <ExtinguisherModal extinguisherId={assignedExtinguisher.id}/>}
+      {isMakeInspectionOverhaul && (
+        <ExtinguisherModal extinguisherId={assignedExtinguisher.id} />
+      )}
     </div>
   );
 };

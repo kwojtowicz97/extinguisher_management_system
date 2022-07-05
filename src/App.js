@@ -38,7 +38,7 @@ function App() {
       <Hamburger />
       <Map />
       <Controls>
-        <ControlsSection title={"Dangers"}>
+        <ControlsSection title={"Dangers"} icon={"!"}>
           <DangersList />
         </ControlsSection>
         <ControlsSection title={"Warnings"}>
@@ -48,7 +48,7 @@ function App() {
         <ControlsSection
           title={"Points"}
           button={{
-            btnTitle: "Add new Point",
+            btnTitle: "+",
             btnOnClick: addNewPointBtnHandler,
           }}
         >
@@ -57,7 +57,7 @@ function App() {
         <ControlsSection
           title={"Extingushers"}
           button={{
-            btnTitle: "Add new Extinguisher",
+            btnTitle: "+",
             btnOnClick: () => modalDispatch(showModalNewExtinguisher()),
           }}
         >

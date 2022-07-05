@@ -8,6 +8,7 @@ export const useSearch = (defaultList) => {
     sortBy: "default",
     sortDesc: false,
     searchPattern: "",
+    keys: [""]
   });
 
   useEffect(() => {
@@ -19,7 +20,7 @@ export const useSearch = (defaultList) => {
         shouldSort: false,
         threshold: 0,
         ignoreLocation: true,
-        keys: ["producer", "type"],
+        keys: config.keys,
       };
 
       const fuse = new Fuse(config.list, options);

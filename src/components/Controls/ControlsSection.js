@@ -3,10 +3,11 @@ export const ControlsSection = ({ title, children, button }) => {
 
   return (
     <div className="controls-section">
-      <h1 className="title">{title}</h1>
-      {button && <button onClick={btnOnClick}>{btnTitle}</button>}
+      <div className="section-title">
+        <h1 className="title">{title}</h1>
+        {button && <button onClick={btnOnClick}>{btnTitle}</button>}
+      </div>
       <div className="content">{children}</div>
     </div>
   );
 };
-

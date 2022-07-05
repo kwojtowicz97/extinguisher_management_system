@@ -59,7 +59,7 @@ export const dummyExtinguishers = [
 
 export const dummyPoints = [
   {
-    number: 1,
+    name: "Tom's office",
     agent: "Water",
     extinguisher: "9fd1e8d2-7a4d-4e49-a73d-0d7e5d7fd814",
     id: 0.8412814400825315,
@@ -67,7 +67,7 @@ export const dummyPoints = [
     lng: -37.67153346555282,
   },
   {
-    number: 2,
+    name: "Mary's office",
     agent: "AFFF foam",
     extinguisher: "ab62ad85-e6d7-4919-ad91-41fe164cdad6",
     id: 0.06953204546931846,
@@ -75,7 +75,7 @@ export const dummyPoints = [
     lng: -34.50946257996719,
   },
   {
-    number: 3,
+    name: "Ann's office",
     agent: "AFFF foam",
     extinguisher: null,
     id: 0.2953204546931846,

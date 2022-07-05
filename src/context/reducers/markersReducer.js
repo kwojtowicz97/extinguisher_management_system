@@ -11,10 +11,10 @@ const markersReducer = (state, action) => {
     case ADD_MARKER:
       const {
         event,
-        newPoint: { agent, extinguisher },
+        newPoint: { agent, extinguisher, name },
       } = payload;
       const newMarker = {
-        number: 1,
+        name,
         agent,
         extinguisher,
         id: Math.random(),

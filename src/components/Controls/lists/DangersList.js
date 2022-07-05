@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { appContext } from "../../../context/store/appContext";
+import { showExtinguisherModal, showPointModal } from "../../../context/actions/ui";
 
 export const DangersList = () => {
   const appCtx = useContext(appContext);
-  const { markersState, extinguishersState } = appCtx;
+  const { markersState, extinguishersState, modalDispatch } = appCtx;
 
   const extinguishersInspectionOverdue = extinguishersState.filter((ex) => {
     const inspectionDate = new Date(ex.inspectionDate);
@@ -19,18 +20,40 @@ export const DangersList = () => {
     (point) => point.extinguisher === null
   );
 
+  const extinguishersInspectionOverdueClickHandler = (extinguiserID) => {
+    modalDispatch(showExtinguisherModal(extinguiserID));
+  };
+
+  const pointsWithNoExtinguisherClickHandler = (pointID) => {
+    modalDispatch(showPointModal(pointID))
+  }
+
   return (
     <div>
+      <h2 className="subtitle">Inspection Overdue</h2>
       <ul>
-        <li>Inspection Overdue</li>
         {extinguishersInspectionOverdue.map((e) => (
-          <li key={`io-${e.id}`}>{e.id}</li>
+          <li
+            onClick={() => extinguishersInspectionOverdueClickHandler(e.id)}
+            className="list-item"
+            key={`io-${e.id}`}
+          >
+            <b>{`${e.producer} ${e.type}`}</b>
+            <br />
+            Last inspection: <b>{e.inspectionDate}</b>
+          </li>
         ))}
       </ul>
+      <h2 className="subtitle">No fire extinguisher</h2>
       <ul>
-        <li>No fire extinguisher</li>
         {pointsWithNoExtinguisher.map((e) => (
-          <li key={`ne-${e.id}`}>{e.id}</li>
+          <li
+            onClick={() => pointsWithNoExtinguisherClickHandler(e)}
+            className="list-item"
+            key={`ne-${e.id}`}
+          >
+            <b>{e.name}</b>
+          </li>
         ))}
       </ul>
     </div>

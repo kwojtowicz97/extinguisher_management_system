@@ -18,6 +18,7 @@ export const PointsList = (props) => {
       sortBy: sortByState,
       sortDesc: sortDir,
       searchPattern: searchPattern,
+      keys: ["name"],
     });
   }, [markersState, sortByState, searchPattern, sortDir, setConfig]);
 
@@ -40,10 +41,10 @@ export const PointsList = (props) => {
         value={searchPattern}
         onChange={searchInputHandler}
       ></input>
-      <br />
       <label htmlFor="sortOptions">Sort by</label>
       <select value={sortByState} onChange={sortByHandler} id="sortOptions">
         <option value="default">Default</option>
+        <option value="name">Name</option>
         <option value="agent">Agent</option>
         <option value="extinguisher">Extinguisher</option>
       </select>
@@ -51,12 +52,14 @@ export const PointsList = (props) => {
         {sortedPoints.map((point) => {
           return (
             <li
-              className={`${point.agent === filteredAgent ? "matching" : ""} ${
-                choosenExtiguisher === point.id ? "selected" : ""
-              }`}
-              onClick={() => (clickHandler(point))}
+              className={`list-item ${
+                point.agent === filteredAgent ? "matching" : ""
+              } ${choosenExtiguisher === point.id ? "selected" : ""}`}
+              onClick={() => clickHandler(point)}
               key={point.id}
-            >{`${point.number} ${point.agent} ${point.extinguisher}`}</li>
+            >
+              <b>{`${point.name}`}</b>
+            </li>
           );
         })}
       </ul>

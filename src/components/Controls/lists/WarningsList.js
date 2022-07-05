@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { appContext } from "../../../context/store/appContext";
+import { showExtinguisherModal, showPointModal } from "../../../context/actions/ui";
 
 export const WarningsList = () => {
   const appCtx = useContext(appContext);
-  const { markersState, extinguishersState } = appCtx;
+  const { markersState, extinguishersState, modalDispatch } = appCtx;
 
   const extinguishersToInspect = extinguishersState.filter((ex) => {
     const inspectionDate = new Date(ex.inspectionDate);
@@ -28,18 +29,40 @@ export const WarningsList = () => {
     return assignedExtinguisherToPoint.agent !== point.agent;
   });
 
+    const extinguishersToInspectClickHandler = (extinguiserID) => {
+      modalDispatch(showExtinguisherModal(extinguiserID));
+    };
+
+    const pointsWithWrongAgentsClickHandler = (pointID) => {
+      modalDispatch(showPointModal(pointID));
+    };
+
   return (
     <div>
+      <h2 className="subtitle">Incoming inspection</h2>
       <ul>
-        <li>Incoming inspection</li>
         {extinguishersToInspect.map((e) => (
-          <li key={`ii-${e.id}`}>{e.id}</li>
+          <li
+            onClick={() => {
+              extinguishersToInspectClickHandler(e.id);
+            }}
+            className="list-item"
+            key={`ii-${e.id}`}
+          >
+            {e.id}
+          </li>
         ))}
       </ul>
+      <h2 className="subtitle">Wrong extinguishing agent</h2>
       <ul>
-        <li>Wrong extinguishing agent</li>
         {pointsWithWrongAgents.map((e) => (
-          <li key={`wa-${e.id}`}>{e.id}</li>
+          <li
+            onClick={() => pointsWithWrongAgentsClickHandler(e)}
+            className="list-item"
+            key={`wa-${e.id}`}
+          >
+            <b>{e.name}</b>
+          </li>
         ))}
       </ul>
     </div>

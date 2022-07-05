@@ -1,7 +1,11 @@
 import { useContext, useState } from "react";
 import { appContext } from "../../../context/store/appContext";
 import { ExtinguishersList } from "../../Controls/lists";
-import { setExtinguisher, setAgent } from "../../../context/actions/newPoint";
+import {
+  setExtinguisher,
+  setAgent,
+  setName,
+} from "../../../context/actions/newPoint";
 import { checkNewPointData } from "../../../context/actions/ui";
 
 export const NewPointForm = () => {
@@ -11,6 +15,9 @@ export const NewPointForm = () => {
   const checkDataButtonHandler = (e) => {
     e.preventDefault();
     modalDispatch(checkNewPointData(agent, extinguisher));
+  };
+  const changeNameHandler = (e) => {
+    newPointDispatch(setName(e.target.value));
   };
   const chooseExtinguisherHandler = (extinguisher) => {
     newPointDispatch(setExtinguisher(extinguisher));
@@ -22,6 +29,8 @@ export const NewPointForm = () => {
   return (
     <div>
       <form onSubmit={checkDataButtonHandler}>
+        <label htmlFor="point-name">Point name:</label>
+        <input onChange={changeNameHandler} type="text" />
         <label htmlFor="extinguisher-agent">
           Choose default extinguisher agent:
         </label>
