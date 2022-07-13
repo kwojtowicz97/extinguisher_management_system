@@ -48,7 +48,7 @@ function App() {
         <ControlsSection
           title={"Points"}
           button={{
-            btnTitle: "+",
+            btnTitle: "Add",
             btnOnClick: addNewPointBtnHandler,
           }}
         >
@@ -57,7 +57,7 @@ function App() {
         <ControlsSection
           title={"Extingushers"}
           button={{
-            btnTitle: "+",
+            btnTitle: "Add",
             btnOnClick: () => modalDispatch(showModalNewExtinguisher()),
           }}
         >

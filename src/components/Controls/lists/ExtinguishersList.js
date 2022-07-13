@@ -17,7 +17,7 @@ export const ExtinguishersList = (props) => {
       sortBy: sortByState,
       sortDesc: sortDir,
       searchPattern: searchPattern,
-      keys:  ["producer", "type", "agent"]
+      keys: ["producer", "type", "agent"],
     });
   }, [extinguishersState, sortByState, searchPattern, sortDir, setConfig]);
 
@@ -33,7 +33,7 @@ export const ExtinguishersList = (props) => {
   };
 
   return (
-    <div>
+    <div className="extinguishers-list">
       <input
         placeholder="search"
         type="text"
@@ -41,7 +41,9 @@ export const ExtinguishersList = (props) => {
         onChange={searchInputHandler}
       ></input>
       <br />
-      <label htmlFor="sortOptions">Sort by</label>
+      <label style={{ padding: 2 + "px" + 0 + "px"}} htmlFor="sortOptions">
+        Sort by{" "}
+      </label>
       <select value={sortByState} onChange={sortByHandler} id="sortOptions">
         <option value="default">Default</option>
         <option value="producer">Producer</option>
@@ -52,8 +54,11 @@ export const ExtinguishersList = (props) => {
       </select>
       <ul>
         {isNull && (
-          <li onClick={() => (onClick ? clickHandler(null) : null)}>
-            No extinguisher
+          <li
+            className="list-item"
+            onClick={() => (onClick ? clickHandler(null) : null)}
+          >
+            <b>No extinguisher</b>
           </li>
         )}
         {sortedExtinguishers.map((extinguisher) => (

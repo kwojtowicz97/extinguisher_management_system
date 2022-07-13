@@ -1,24 +1,13 @@
 import { useContext } from "react";
 import { appContext } from "../../../context/store/appContext";
+import { useWarningsAndDangers } from "../../../customHooks";
 import { showExtinguisherModal, showPointModal } from "../../../context/actions/ui";
 
 export const DangersList = () => {
   const appCtx = useContext(appContext);
   const { markersState, extinguishersState, modalDispatch } = appCtx;
-
-  const extinguishersInspectionOverdue = extinguishersState.filter((ex) => {
-    const inspectionDate = new Date(ex.inspectionDate);
-    const year = inspectionDate.getFullYear();
-    const month = inspectionDate.getMonth();
-    const day = inspectionDate.getDate();
-    const nextInspection = new Date(year + 1, month, day);
-    const isIncomingInspection = nextInspection - new Date() < 0;
-    return isIncomingInspection;
-  });
-
-  const pointsWithNoExtinguisher = markersState.filter(
-    (point) => point.extinguisher === null
-  );
+  const warningsAndDangers = useWarningsAndDangers()
+  const {dangers: { extinguishersInspectionOverdue, pointsWithNoExtinguisher }} = warningsAndDangers
 
   const extinguishersInspectionOverdueClickHandler = (extinguiserID) => {
     modalDispatch(showExtinguisherModal(extinguiserID));

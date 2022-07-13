@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import {
   markersReducer,
   extinguishersReducer,
@@ -30,6 +30,8 @@ export const AppProvider = ({ children }) => {
     extinguisher: null,
   });
 
+  const [refresh, setRefresh] = useState(false);
+
   const value = {
     markersState,
     extinguishersState,
@@ -41,7 +43,10 @@ export const AppProvider = ({ children }) => {
     hamburgerDispatch,
     modalDispatch,
     newPointDispatch,
+    setRefresh,
   };
+
+  
 
   return <appContext.Provider value={value}>{children}</appContext.Provider>;
 };

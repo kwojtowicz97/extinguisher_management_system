@@ -60,10 +60,12 @@ export const NewExtinguisherForm = () => {
   };
 
   return (
-    <div>
+    <div className="modal-content">
       <form onSubmit={addExtinguisherHandler}>
         <div>
-          <label htmlFor="producer">Producer</label>
+          <label htmlFor="producer">
+            <b>Producer: </b>
+          </label>
           <input
             id="producer"
             type="text"
@@ -74,7 +76,9 @@ export const NewExtinguisherForm = () => {
         </div>
 
         <div>
-          <label htmlFor="type">Type</label>
+          <label htmlFor="type">
+            <b>Type: </b>
+          </label>
           <input
             id="type"
             type="text"
@@ -84,7 +88,9 @@ export const NewExtinguisherForm = () => {
           ></input>
         </div>
         <div>
-          <label htmlFor="agent">Extinguishing agent</label>
+          <label htmlFor="agent">
+            <b>Extinguishing agent: </b>
+          </label>
           <select
             id="agent"
             type="text"
@@ -99,7 +105,9 @@ export const NewExtinguisherForm = () => {
           </select>
         </div>
         <div>
-          <label htmlFor="production-date">Production date</label>
+          <label htmlFor="production-date">
+            <b>Production date: </b>
+          </label>
           <input
             id="production-date"
             type="date"

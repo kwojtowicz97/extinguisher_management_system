@@ -27,22 +27,30 @@ export const NewPointForm = () => {
   };
 
   return (
-    <div>
+    <div className="modal-content">
       <form onSubmit={checkDataButtonHandler}>
-        <label htmlFor="point-name">Point name:</label>
-        <input onChange={changeNameHandler} type="text" />
-        <label htmlFor="extinguisher-agent">
-          Choose default extinguisher agent:
-        </label>
-        <select onChange={changeAgentHandler} id="extinguisher-agent">
-          <option>Any</option>
-          <option>Water</option>
-          <option>AFFF foam</option>
-          <option>CO2</option>
-          <option>ABC powder</option>
-        </select>
-        <div>
-          <label htmlFor="extinguisher-select">Choose extinguisher:</label>
+        <div className="point">
+          <label htmlFor="point-name">
+            <b>Point name: </b>
+          </label>
+          <input onChange={changeNameHandler} type="text" />
+        </div>
+        <div className="point">
+          <label htmlFor="extinguisher-agent">
+            <b>Default extinguisher agent: </b>
+          </label>
+          <select onChange={changeAgentHandler} id="extinguisher-agent">
+            <option>Any</option>
+            <option>Water</option>
+            <option>AFFF foam</option>
+            <option>CO2</option>
+            <option>ABC powder</option>
+          </select>
+        </div>
+        <div className="point">
+          <label htmlFor="extinguisher-select">
+            <b>Extinguisher: </b>
+          </label>
           <ExtinguishersList
             filteredAgent={newPointState.agent}
             onClick={chooseExtinguisherHandler}

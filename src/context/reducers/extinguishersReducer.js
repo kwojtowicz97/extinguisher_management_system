@@ -42,7 +42,7 @@ const extinguishersReducer = (state, action) => {
         (ex) => ex === payload.extinguisher
       );
       extinguisherToInspect.inspectionDate = payload.date;
-      return state;
+      return new Array(...state)
     case MAKE_OVERAHUL:
       const extinguisherToOverhaul = state.find(
         (ex) => ex === payload.extinguisher
