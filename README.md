@@ -1,6 +1,8 @@
 # Fire Extinguishers Management System
 
-Application created in react where you can manage fire extinguishers in a builing.
+Application created in React where you can manage fire extinguishers in a builing.
+
+Live version: https://fire-extinguisher-management-system.onrender.com/
 
 Functions:
 
