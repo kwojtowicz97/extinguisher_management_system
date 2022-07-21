@@ -2,7 +2,6 @@ import {
   ADD_EXTINGUISHER,
   SET_IS_USED,
   MAKE_INSPECTION,
-  MAKE_OVERAHUL,
 } from "../actions/extinguisher";
 import { v4 as newID } from "uuid";
 
@@ -17,7 +16,6 @@ const extinguishersReducer = (state, action) => {
         agentState,
         prodDateState,
         inspDateState,
-        ovhlDateState,
       } = payload;
 
       const extinguisher = {
@@ -27,7 +25,6 @@ const extinguishersReducer = (state, action) => {
         type: typeState,
         productionDate: prodDateState,
         inspectionDate: inspDateState,
-        overhaulDate: ovhlDateState,
         isUsed: false,
       };
       return [extinguisher, ...state];
@@ -43,12 +40,6 @@ const extinguishersReducer = (state, action) => {
       );
       extinguisherToInspect.inspectionDate = payload.date;
       return new Array(...state)
-    case MAKE_OVERAHUL:
-      const extinguisherToOverhaul = state.find(
-        (ex) => ex === payload.extinguisher
-      );
-      extinguisherToInspect.overhaulDate = payload.date;
-      return state;
     default:
       throw new Error("[extinguishers] invalid action");
   }

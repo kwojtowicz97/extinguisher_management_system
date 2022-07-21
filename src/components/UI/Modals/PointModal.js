@@ -76,9 +76,9 @@ export const PointModal = (props) => {
       </p>
       <p>
         <b>Assigned extinguiser: </b>
-        {/* {assignedExtinguisher
+        {assignedExtinguisher
           ? `${assignedExtinguisher.producer} ${assignedExtinguisher.type}`
-          : "No Extinguisher"} */}
+          : "No extinguisher"}
       </p>
 
       <div className="button-container">

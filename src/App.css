@@ -92,12 +92,13 @@ body {
   margin: 0.5rem 0;
 }
 
-.button-container {
+/* .button-container {
   display: flex;
-}
+} */
 
 .inspection-container {
   margin: 1rem 0;
+  
 }
 
 .button-container button {

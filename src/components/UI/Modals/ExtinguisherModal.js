@@ -8,16 +8,10 @@ export const ExtinguisherModal = (props) => {
   const { extinguishersState } = appCtx;
   const { extinguisherId } = props;
   const [isInspetion, setIsInspetion] = useState(false);
-  const [isOverhaul, setIsOverhaul] = useState(false);
   const showInspectionCard = () => {
     setIsInspetion((state) => !state);
-    setIsOverhaul(false);
   };
 
-  const showOverhaulCard = () => {
-    setIsOverhaul((state) => !state);
-    setIsInspetion();
-  };
 
 
   const {
@@ -29,7 +23,7 @@ export const ExtinguisherModal = (props) => {
     (ex) => ex.id === extinguisherId
   );
 
-  const { producer, type, agent, id } = extinguisher;
+  const { producer, type, agent, id, inspectionDate, productionDate } = extinguisher;
   let toInspect = false;
   let inspectionOverdue = false;
 
@@ -62,14 +56,23 @@ export const ExtinguisherModal = (props) => {
         <strong>Extinguishing agent: </strong>
         {agent}
       </p>
+      <p>
+        <strong>Production date: </strong>
+        {productionDate}
+      </p>
+      {inspectionDate &&
+        <p>
+          <strong>Last inspection date: </strong>
+          {inspectionDate}
+        </p>
+      }
       <div className="button-container">
         <button onClick={showInspectionCard}>Inspection</button>
-        <button onClick={showOverhaulCard}>Overhaul</button>
       </div>
-      {(isInspetion || isOverhaul) && (
+      {isInspetion && (
         <InspectionCard
           extinguisher={extinguisher}
-          type={isInspetion ? "inspection" : "overhaul"}
+          type={isInspetion && "inspection"}
         />
       )}
     </div>

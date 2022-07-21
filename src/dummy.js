@@ -7,7 +7,6 @@ export const dummyExtinguishers = [
     agent: "ABC powder",
     productionDate: "2020-01-01",
     inspectionDate: "2021-06-01",
-    overhaulDate: "2020-01-01",
     isUsed: false,
   },
   {
@@ -18,7 +17,6 @@ export const dummyExtinguishers = [
     agent: "ABC powder",
     productionDate: "2020-01-01",
     inspectionDate: "2020-01-01",
-    overhaulDate: "2020-01-01",
     isUsed: false,
   },
   {
@@ -29,7 +27,6 @@ export const dummyExtinguishers = [
     agent: "ABC powder",
     productionDate: "2020-01-01",
     inspectionDate: "2022-01-01",
-    overhaulDate: "2020-01-01",
     isUsed: false,
   },
   {
@@ -40,7 +37,6 @@ export const dummyExtinguishers = [
     agent: "AFFF foam",
     productionDate: "2020-01-01",
     inspectionDate: "2022-01-01",
-    overhaulDate: "2020-01-01",
     isUsed: false,
   },
   {
@@ -51,7 +47,6 @@ export const dummyExtinguishers = [
     agent: "Water",
     productionDate: "2020-01-01",
     inspectionDate: "2021-06-10",
-    overhaulDate: "2020-01-01",
     isUsed: false,
   },
 ];

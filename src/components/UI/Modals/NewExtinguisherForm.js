@@ -13,8 +13,6 @@ export const NewExtinguisherForm = () => {
   const [prodDateState, setProdDate] = useState("");
   const [inspDateState, setInspDate] = useState("");
   const [inspDateCheckbox, setInspDateCheckbox] = useState(false);
-  const [ovhlDateState, setOvhlDate] = useState("");
-  const [ovhlDateCheckbox, setOvhlDateCheckbox] = useState(false);
 
   const producerChangeHandler = (e) => {
     setProducer(e.target.value);
@@ -31,9 +29,6 @@ export const NewExtinguisherForm = () => {
   const inspDateChangeHandler = (e) => {
     setInspDate(e.target.value);
   };
-  const ovhlDateChangeHandler = (e) => {
-    setOvhlDate(e.target.value);
-  };
 
   const addExtinguisherHandler = (e) => {
     e.preventDefault();
@@ -43,7 +38,6 @@ export const NewExtinguisherForm = () => {
       agentState,
       prodDateState,
       inspDateCheckbox && inspDateState,
-      ovhlDateCheckbox && ovhlDateState,
     ];
     if (data.some((element) => element === undefined)) return;
     const extinguisher = {
@@ -52,7 +46,6 @@ export const NewExtinguisherForm = () => {
       agentState,
       prodDateState,
       inspDateState,
-      ovhlDateState,
     };
 
     extinguishersDispatch(addExtinguisher(extinguisher));
@@ -130,22 +123,6 @@ export const NewExtinguisherForm = () => {
             required={inspDateCheckbox}
             disabled={!inspDateCheckbox}
             onChange={inspDateChangeHandler}
-          ></input>
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            checked={ovhlDateCheckbox}
-            onChange={() => setOvhlDateCheckbox((prev) => !prev)}
-          ></input>
-          <label htmlFor="overhaul-date">Overhaul date</label>
-          <input
-            id="overhaul-date"
-            type="date"
-            value={ovhlDateState}
-            required={ovhlDateCheckbox}
-            disabled={!ovhlDateCheckbox}
-            onChange={ovhlDateChangeHandler}
           ></input>
         </div>
         <button type="submit">Add</button>

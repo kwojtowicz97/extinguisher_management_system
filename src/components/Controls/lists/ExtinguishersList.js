@@ -35,7 +35,7 @@ export const ExtinguishersList = (props) => {
   return (
     <div className="extinguishers-list">
       <input
-        placeholder="search"
+        placeholder="search for prod/type/agent"
         type="text"
         value={searchPattern}
         onChange={searchInputHandler}
@@ -69,7 +69,7 @@ export const ExtinguishersList = (props) => {
             onClick={() => (onClick ? clickHandler(extinguisher.id) : null)}
             key={extinguisher.id}
           >
-            <b>{`${extinguisher.producer} ${extinguisher.type}`}</b>
+            <b>{`${extinguisher.producer} ${extinguisher.type} (${extinguisher.agent})`}</b>
           </li>
         ))}
       </ul>

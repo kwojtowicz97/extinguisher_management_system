@@ -33,7 +33,7 @@ export const NewPointForm = () => {
           <label htmlFor="point-name">
             <b>Point name: </b>
           </label>
-          <input onChange={changeNameHandler} type="text" />
+          <input required onChange={changeNameHandler} type="text" />
         </div>
         <div className="point">
           <label htmlFor="extinguisher-agent">
@@ -49,7 +49,7 @@ export const NewPointForm = () => {
         </div>
         <div className="point">
           <label htmlFor="extinguisher-select">
-            <b>Extinguisher: </b>
+            <b>Choose extinguisher: </b>
           </label>
           <ExtinguishersList
             filteredAgent={newPointState.agent}
@@ -57,10 +57,6 @@ export const NewPointForm = () => {
             choosenExtiguisher={newPointState.extinguisher}
           />
         </div>
-        {/* <select id="extinguisher-select">
-            <option>None</option>
-            {extinguishersState.map(ex => <option key={ex.id}>{`${ex.producer} ${ex.type}`}</option>)}
-        </select> */}
         <button type="submit">Choose location</button>
         {modalState.info && <p>{modalState.info}</p>}
       </form>

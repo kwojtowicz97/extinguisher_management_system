@@ -4,10 +4,10 @@ import { makeInspection } from "../../../context/actions/extinguisher";
 
 export const InspectionCard = (props) => {
   const appCtx = useContext(appContext);
-  const { extinguishersDispatch, setRefresh } = appCtx;
+  const { extinguishersDispatch } = appCtx;
   const { extinguisher, type } = props;
 
-  const [date, setDate] = useState(new Date().toISOString().substring(0, 10));
+  const [date, setDate] = useState("");
 
   const dateHandler = (e) => {
     setDate(e.target.value);
@@ -15,8 +15,6 @@ export const InspectionCard = (props) => {
 
   const makeInspectionHandler = () => {
     extinguishersDispatch(makeInspection(extinguisher, date));
-    setRefresh(true)
-
   };
 
   const makeOverhaul = () => {
@@ -25,11 +23,25 @@ export const InspectionCard = (props) => {
 
   return (
     <div className="inspection-card">
+      <p>Check if:</p>
+      <ul>
+        <li>There is no mechanical damage</li>
+        <li>Extinguisher isn't used</li>
+        <li>Extinguisher has a seal</li>
+        <li>Extinguisher is in correct place and properly mounted</li>
+        <li>The preassure is correct</li>
+      </ul>
+      <label htmlFor="date">
+        <b>Choose inspection date: </b>
+      </label>
       <input
+        id="date"
         type="date"
+        defaultValue={new Date().toISOString().substring(0, 10)}
         value={date}
         onChange={dateHandler}
       />
+      <br/>
       {type === "inspection" ? (
         <button onClick={makeInspectionHandler}>Make Inspection</button>
       ) : (
