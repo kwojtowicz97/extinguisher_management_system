@@ -20,10 +20,10 @@ export const AppProvider = ({ children }) => {
     hamburgerReducer,
     false
   );
-  const [markersState, markersDispatch] = useReducer(markersReducer, dummyPoints);
+  const [markersState, markersDispatch] = useReducer(markersReducer, JSON.parse(localStorage.getItem("points")) || dummyPoints);
   const [extinguishersState, extinguishersDispatch] = useReducer(
     extinguishersReducer,
-    dummyExtinguishers
+    JSON.parse(localStorage.getItem("ex")) || dummyExtinguishers
   );
   const [newPointState, newPointDispatch] = useReducer(newPointReducer, {
     agent: "Any",

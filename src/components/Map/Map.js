@@ -15,7 +15,7 @@ import { setIsUsed } from "../../context/actions/extinguisher";
 import { usePointsWitProblems } from "../../customHooks";
 import { getIcon } from "./Icons/Icon";
 
-const bounds = new LatLngBounds([0, 0], [40.773941, -74.12544]);
+const bounds = new LatLngBounds([0, 0], [113, -183]);
 
 const MapObject = () => {
   const {
@@ -52,10 +52,10 @@ export const Map = () => {
   } = usePointsWitProblems();
   return (
     <div className="map-container">
-      <MapContainer center={[20.505, -40]} zoom={4} scrollWheelZoom={true}>
+      <MapContainer center={[70, -90]} zoom={3} scrollWheelZoom={true}>
         <MapObject />
         <ImageOverlay
-          url="https://fpg.roomsketcher.com/image/level/178/2d/Large-Office-2D-Floor-Plan.jpg"
+          url="https://portal-media.cca.edu/images/1111_8th_St_Montgomery_Lv1__FA21_Campus_Map.width-1130.jpg"
           bounds={bounds}
           opacity={1}
           zIndex={100}

@@ -4,6 +4,7 @@ import {
   changeExtinguisher,
   removeMarker,
 } from "../../../context/actions/markers";
+import {setIsUsed} from "../../../context/actions/extinguisher"
 import { hideModal } from "../../../context/actions/ui";
 import { useState } from "react";
 import { ExtinguishersList } from "../../Controls/lists";
@@ -14,7 +15,12 @@ export const PointModal = (props) => {
   const { marker } = props;
   const { id, agent, name } = marker;
   const appCtx = useContext(appContext);
-  const { markersDispatch, modalDispatch, extinguishersState } = appCtx;
+  const {
+    markersDispatch,
+    modalDispatch,
+    extinguishersDispatch,
+    extinguishersState,
+  } = appCtx;
   const [isMakeInspectionOverhaul, setMakeInspectionOverhaul] = useState(false);
   const [isChangingExtinguisher, setIsChangingExtinguisher] = useState(false);
 
@@ -36,6 +42,7 @@ export const PointModal = (props) => {
 
   const removeHandeler = () => {
     markersDispatch(removeMarker(id));
+    extinguishersDispatch(setIsUsed())
     modalDispatch(hideModal());
   };
   const assignedExtinguisher = extinguishersState.find(
@@ -54,6 +61,7 @@ export const PointModal = (props) => {
 
   const changeExtinguisherHandler = (extinguisher) => {
     markersDispatch(changeExtinguisher(marker, extinguisher));
+    extinguishersDispatch(setIsUsed(extinguisher));
     setIsChangingExtinguisher(false);
   };
 
@@ -99,6 +107,7 @@ export const PointModal = (props) => {
             isNull={true}
             filteredAgent={agent}
             onClick={changeExtinguisherHandler}
+            filterUsed={true}
           />
         )}
         {isMakeInspectionOverhaul && (

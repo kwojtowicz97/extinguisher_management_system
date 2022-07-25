@@ -21,16 +21,20 @@ const markersReducer = (state, action) => {
         lat: event.latlng.lat,
         lng: event.latlng.lng,
       };
+      localStorage.setItem("points", JSON.stringify([...state, newMarker]));
       return [...state, newMarker];
 
     case REMOVE_MARKER:
-      return state.filter((mkr) => mkr.id !== payload);
+      const temp = state.filter((mkr) => mkr.id !== payload);
+      localStorage.setItem("points", JSON.stringify(temp));
+      return temp;
 
     case CHANGE_EXTINGUISHER:
       const { marker, newExtinguiser } = payload;
       const index = state.findIndex((mkr) => mkr.id === marker.id);
       const newState = [...state];
       newState[index].extinguisher = newExtinguiser;
+      localStorage.setItem("points", JSON.stringify(newState));
       return newState;
     default:
       throw new Error("[marker] invalid action");

@@ -3,7 +3,7 @@ import { appContext } from "../../../context/store/appContext";
 import { useSearch } from "../../../customHooks";
 
 export const ExtinguishersList = (props) => {
-  const { filteredAgent, onClick, choosenExtiguisher, isNull } = props;
+  const { filteredAgent, onClick, choosenExtiguisher, isNull, filterUsed } = props;
   const appCtx = useContext(appContext);
   const { extinguishersState } = appCtx;
   const [sortedExtinguishers, setConfig] = useSearch(extinguishersState);
@@ -41,7 +41,7 @@ export const ExtinguishersList = (props) => {
         onChange={searchInputHandler}
       ></input>
       <br />
-      <label style={{ padding: 2 + "px" + 0 + "px"}} htmlFor="sortOptions">
+      <label style={{ padding: 2 + "px" + 0 + "px" }} htmlFor="sortOptions">
         Sort by{" "}
       </label>
       <select value={sortByState} onChange={sortByHandler} id="sortOptions">
@@ -61,17 +61,19 @@ export const ExtinguishersList = (props) => {
             <b>No extinguisher</b>
           </li>
         )}
-        {sortedExtinguishers.map((extinguisher) => (
-          <li
-            className={`list-item ${
-              extinguisher.agent === filteredAgent ? "matching" : ""
-            } ${choosenExtiguisher === extinguisher.id ? "selected" : ""}`}
-            onClick={() => (onClick ? clickHandler(extinguisher.id) : null)}
-            key={extinguisher.id}
-          >
-            <b>{`${extinguisher.producer} ${extinguisher.type} (${extinguisher.agent})`}</b>
-          </li>
-        ))}
+        {sortedExtinguishers
+          .filter((ex) => filterUsed ? !ex.isUsed : true)
+          .map((extinguisher) => (
+            <li
+              className={`list-item ${
+                extinguisher.agent === filteredAgent ? "matching" : ""
+              } ${choosenExtiguisher === extinguisher.id ? "selected" : ""}`}
+              onClick={() => (onClick ? clickHandler(extinguisher.id) : null)}
+              key={extinguisher.id}
+            >
+              <b>{`${extinguisher.producer} ${extinguisher.type} (${extinguisher.agent})`}</b>
+            </li>
+          ))}
       </ul>
     </div>
   );

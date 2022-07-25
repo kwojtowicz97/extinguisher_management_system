@@ -98,7 +98,6 @@ body {
 
 .inspection-container {
   margin: 1rem 0;
-  
 }
 
 .button-container button {
@@ -214,12 +213,28 @@ ul {
   font-weight: bold;
 }
 
+.section-title .expander {
+  margin-right: 10px;
+  margin-left: auto;
+}
+
 .my-div-icon {
   width: 2px;
   height: 2px;
 }
 
-
 .danger-info {
-  color: rgb(180, 184, 117);
+  color: rgb(206, 0, 62);
+}
+
+.leaflet-control-attribution {
+  display: none;
+}
+
+.collapsed {
+  display: none;
+}
+
+.margin {
+  margin-bottom: 10px;
 }

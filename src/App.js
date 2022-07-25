@@ -38,14 +38,15 @@ function App() {
       <Hamburger />
       <Map />
       <Controls>
-        <ControlsSection title={"Dangers"} icon={"!"}>
+        <ControlsSection title={"Dangers"} icon={"!"} collapsable={false}>
           <DangersList />
         </ControlsSection>
-        <ControlsSection title={"Warnings"}>
+        <ControlsSection title={"Warnings"} collapsable={false}>
           <WarningsList />
         </ControlsSection>
 
         <ControlsSection
+          collapsable={true}
           title={"Points"}
           button={{
             btnTitle: "Add",
@@ -55,13 +56,18 @@ function App() {
           <PointsList filteredAgent="Any" shouldShowOnlyUnused={false} />
         </ControlsSection>
         <ControlsSection
+          collapsable={true}
           title={"Extingushers"}
           button={{
             btnTitle: "Add",
             btnOnClick: () => modalDispatch(showModalNewExtinguisher()),
           }}
         >
-          <ExtinguishersList filteredAgent="Any" shouldShowOnlyUnused={false} onClick={showExtinguisherModalHandler}/>
+          <ExtinguishersList
+            filteredAgent="Any"
+            shouldShowOnlyUnused={false}
+            onClick={showExtinguisherModalHandler}
+          />
         </ControlsSection>
       </Controls>
       {isModal && <Modal />}

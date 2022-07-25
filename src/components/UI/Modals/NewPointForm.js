@@ -55,6 +55,7 @@ export const NewPointForm = () => {
             filteredAgent={newPointState.agent}
             onClick={chooseExtinguisherHandler}
             choosenExtiguisher={newPointState.extinguisher}
+            filterUsed={true}
           />
         </div>
         <button type="submit">Choose location</button>

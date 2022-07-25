@@ -27,18 +27,21 @@ const extinguishersReducer = (state, action) => {
         inspectionDate: inspDateState,
         isUsed: false,
       };
+      localStorage.setItem("ex", [extinguisher, ...state]);
       return [extinguisher, ...state];
     case SET_IS_USED:
       const id = payload;
       const extinguiser = state.find((ex) => ex.id === id);
       extinguiser.isUsed = true;
-      return state;
+      localStorage.setItem("ex", JSON.stringify(state));
+      return new Array(...state);
 
     case MAKE_INSPECTION:
       const extinguisherToInspect = state.find(
         (ex) => ex === payload.extinguisher
       );
       extinguisherToInspect.inspectionDate = payload.date;
+      localStorage.setItem("ex", JSON.stringify(new Array(...state)));
       return new Array(...state)
     default:
       throw new Error("[extinguishers] invalid action");
