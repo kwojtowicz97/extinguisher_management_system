@@ -217,7 +217,7 @@ li.selected {
 
 .subtitle {
   font-size: 1.2rem;
-  margin-left: 1rem;
+  margin: 0.2rem 1rem ;
 }
 
 
@@ -364,4 +364,8 @@ select:invalid {
 
 button {
   cursor: pointer;
+}
+
+.warnings-and-dangers {
+  margin-left: 1rem;
 }

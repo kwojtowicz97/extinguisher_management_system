@@ -22,7 +22,7 @@ export const DangersList = () => {
       {extinguishersInspectionOverdue.length > 0 && (
         <>
           <h2 className="subtitle">Inspection Overdue</h2>
-          <ul>
+          <ul className="warnings-and-dangers">
             {extinguishersInspectionOverdue.map((e) => (
               <li
                 onClick={() => extinguishersInspectionOverdueClickHandler(e.id)}
@@ -37,20 +37,22 @@ export const DangersList = () => {
           </ul>
         </>
       )}
-      {pointsWithNoExtinguisher.length > 0 && <>
-        <h2 className="subtitle">No fire extinguisher</h2>
-        <ul>
-          {pointsWithNoExtinguisher.map((e) => (
-            <li
-              onClick={() => pointsWithNoExtinguisherClickHandler(e)}
-              className="list-item"
-              key={`ne-${e.id}`}
-            >
-              <b>{e.name}</b>
-            </li>
-          ))}
-        </ul>
-      </>}
+      {pointsWithNoExtinguisher.length > 0 && (
+        <>
+          <h2 className="subtitle">No fire extinguisher</h2>
+          <ul className="warnings-and-dangers">
+            {pointsWithNoExtinguisher.map((e) => (
+              <li
+                onClick={() => pointsWithNoExtinguisherClickHandler(e)}
+                className="list-item"
+                key={`ne-${e.id}`}
+              >
+                <b>{e.name}</b>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 };
