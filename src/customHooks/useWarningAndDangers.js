@@ -37,7 +37,7 @@ export const useWarningsAndDangers = () => {
     const assignedExtinguisherToPoint = extinguishersState.find(
       (ex) => ex.id === point.extinguisher
     );
-    return assignedExtinguisherToPoint.agent !== point.agent;
+    return assignedExtinguisherToPoint?.agent !== point.agent;
   });
 
   return {

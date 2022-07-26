@@ -1,5 +1,6 @@
 export const ADD_EXTINGUISHER = "add extinguisher";
 export const SET_IS_USED = "set extinguiser as used";
+export const SET_IS_UNUSED = "set extinguiser as unused";
 export const MAKE_INSPECTION = "make inspection";
 export const MAKE_OVERAHUL = "make overhaul";
 
@@ -12,6 +13,12 @@ export const setIsUsed = (id) => ({
   type: SET_IS_USED,
   payload: id,
 });
+
+export const setIsUnused = (id) => ({
+  type: SET_IS_UNUSED,
+  payload: id
+})
+
 
 export const makeOverhaul = (extinguiser, date) => ({
   type: MAKE_OVERAHUL,

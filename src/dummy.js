@@ -400,7 +400,7 @@ export const dummyExtinguishers = [
     isUsed: true,
   },
   {
-    id: "9fd1e83d2-v7a4d-245e49-avd73d-0dh7e5d7fd814",
+    id: "9fd1e83d2-v7a4d-245e49-avd73d-0dh7dds5d7fd814",
     producer: "FireShield",
     seal: "001",
     type: "A Class 6L",
@@ -620,7 +620,7 @@ export const dummyPoints = [
   {
     name: "Room N16",
     agent: "Water",
-    extinguisher: "9fd1e83d2-v7a4d-245e49-avd73d-0dh7e5d7fd814",
+    extinguisher: "9fd1e83d2-v7a4d-245e49-avd73d-0dhsa7e5d7fd814",
     id: 0.012367943099413914,
     lat: 81.20141954209073,
     lng: -123.60875489546441,

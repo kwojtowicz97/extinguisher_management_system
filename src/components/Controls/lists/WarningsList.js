@@ -25,32 +25,38 @@ export const WarningsList = () => {
 
   return (
     <div>
-      <h2 className="subtitle">Incoming inspection</h2>
-      <ul>
-        {extinguishersToInspect.map((e) => (
-          <li
-            onClick={() => {
-              extinguishersToInspectClickHandler(e.id);
-            }}
-            className="list-item"
-            key={`ii-${e.id}`}
-          >
-            {e.id}
-          </li>
-        ))}
-      </ul>
-      <h2 className="subtitle">Wrong extinguishing agent</h2>
-      <ul>
-        {pointsWithWrongAgents.map((e) => (
-          <li
-            onClick={() => pointsWithWrongAgentsClickHandler(e)}
-            className="list-item"
-            key={`wa-${e.id}`}
-          >
-            <b>{e.name}</b>
-          </li>
-        ))}
-      </ul>
+      {extinguishersToInspect.length > 0 && (
+        <>
+          <h2 className="subtitle">Incoming inspection</h2>
+          <ul>
+            {extinguishersToInspect.map((e) => (
+              <li
+                onClick={() => {
+                  extinguishersToInspectClickHandler(e.id);
+                }}
+                className="list-item"
+                key={`ii-${e.id}`}
+              >
+                {e.id}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      {pointsWithWrongAgents.length > 0 && <>
+        <h2 className="subtitle">Wrong extinguishing agent</h2>
+        <ul>
+          {pointsWithWrongAgents.map((e) => (
+            <li
+              onClick={() => pointsWithWrongAgentsClickHandler(e)}
+              className="list-item"
+              key={`wa-${e.id}`}
+            >
+              <b>{e.name}</b>
+            </li>
+          ))}
+        </ul>
+      </>}
     </div>
   );
 };

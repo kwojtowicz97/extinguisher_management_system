@@ -4,7 +4,7 @@ import {
   changeExtinguisher,
   removeMarker,
 } from "../../../context/actions/markers";
-import {setIsUsed} from "../../../context/actions/extinguisher"
+import { setIsUsed, setIsUnused } from "../../../context/actions/extinguisher";
 import { hideModal } from "../../../context/actions/ui";
 import { useState } from "react";
 import { ExtinguishersList } from "../../Controls/lists";
@@ -40,11 +40,6 @@ export const PointModal = (props) => {
     wrongAgent = true;
   }
 
-  const removeHandeler = () => {
-    markersDispatch(removeMarker(id));
-    extinguishersDispatch(setIsUsed())
-    modalDispatch(hideModal());
-  };
   const assignedExtinguisher = extinguishersState.find(
     (ex) => ex.id === marker.extinguisher
   );
@@ -54,6 +49,13 @@ export const PointModal = (props) => {
     setMakeInspectionOverhaul(false);
   };
 
+  const removeHandeler = () => {
+    markersDispatch(removeMarker(id));
+    assignedExtinguisher &&
+      extinguishersDispatch(setIsUnused(assignedExtinguisher.id));
+    modalDispatch(hideModal());
+  };
+
   const showExtinguisherCard = () => {
     setMakeInspectionOverhaul((state) => !state);
     setIsChangingExtinguisher(false);
@@ -61,19 +63,20 @@ export const PointModal = (props) => {
 
   const changeExtinguisherHandler = (extinguisher) => {
     markersDispatch(changeExtinguisher(marker, extinguisher));
-    extinguishersDispatch(setIsUsed(extinguisher));
+    extinguisher !== null && extinguishersDispatch(setIsUsed(extinguisher.id));
     setIsChangingExtinguisher(false);
   };
 
   return (
     <div className="modal-content">
-      <p className="danger-info">
-        {noExtinguisher
-          ? "No extinguisher assigned"
-          : wrongAgent
-          ? "Wrong extinguishing agent"
-          : ""}
-      </p>
+      {noExtinguisher ? (
+        <p className="danger-info">No extinguisher assigned</p>
+      ) : wrongAgent ? (
+        <p className="danger-info">Wrong extinguishing agent</p>
+      ) : (
+        ""
+      )}
+
       <p>
         <b>Point name: </b>
         {name}
