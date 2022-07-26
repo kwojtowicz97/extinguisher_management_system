@@ -61,12 +61,12 @@ export const PointModal = (props) => {
     setIsChangingExtinguisher(false);
   };
 
-  const changeExtinguisherHandler = (extinguisher) => {
-    assignedExtinguisher !== null && extinguishersDispatch(
+  const changeExtinguisherHandler = (id) => {
+    assignedExtinguisher && extinguishersDispatch(
       setIsUnused(assignedExtinguisher.id)
     );
-    markersDispatch(changeExtinguisher(marker, extinguisher));
-    extinguisher !== null && extinguishersDispatch(setIsUsed(extinguisher.id));
+    markersDispatch(changeExtinguisher(marker, id));
+    id && extinguishersDispatch(setIsUsed(id));
     setIsChangingExtinguisher(false);
   };
 
