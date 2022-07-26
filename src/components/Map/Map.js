@@ -66,9 +66,12 @@ export const Map = () => {
             pointsWithInspectionOverdue.includes(marker);
           const isWarning =
             pointsWithIncomingInspection.includes(marker) ||
-            pointsWithInspectionOverdue.includes(marker);
+            pointsWithWrongAgents.includes(marker);
           let iconMarker = getIcon("normal");
-          if (isWarning) iconMarker = getIcon("warning");
+          if (isWarning) {
+            console.log("warning")
+            iconMarker = getIcon("warning");
+          }
           if (isDanger) iconMarker = getIcon("danger");
           return (
             <Marker

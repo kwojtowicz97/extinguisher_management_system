@@ -61,7 +61,7 @@ body {
   right: 1px;
   top: 1px;
   z-index: 100;
-  background:rgb(72, 145, 255);
+  background: rgb(72, 145, 255);
   border: none;
   border-radius: 7px;
   color: white;
@@ -175,8 +175,6 @@ input[type="checkbox"] {
   margin-bottom: 0.5rem;
 }
 
-
-
 li.matching {
   color: green;
 }
@@ -213,13 +211,20 @@ li.selected {
 
 .content {
   padding: 0.2rem;
+  padding-right: 0;
 }
 
 .subtitle {
   font-size: 1.2rem;
-  margin: 0.2rem 1rem ;
+  margin: 0.2rem 1rem;
+  margin-right: 0;
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 0px 0px 0px 8px;
+  box-shadow: 0 4px 2px -2px rgb(0 0 0 / 30%);
 }
-
 
 .list-item {
   margin: 0.2rem 0;
@@ -285,7 +290,6 @@ select:invalid {
   color: gray;
 }
 
-
 .search-container {
   display: flex;
   flex-direction: column;
@@ -325,11 +329,10 @@ select:invalid {
   background: rgb(29, 29, 244);
 }
 
-
-.point .search-container, ul {
+.point .search-container,
+ul {
   padding: 0;
 }
-
 
 @media only screen and (max-width: 600px) {
   .list-item:hover {
