@@ -6,13 +6,11 @@ import { useWarningsAndDangers } from "../../../customHooks";
 export const ExtinguisherModal = (props) => {
   const appCtx = useContext(appContext);
   const { extinguishersState } = appCtx;
-  const { extinguisherId } = props;
+  const { extinguisherId, inspection } = props;
   const [isInspetion, setIsInspetion] = useState(false);
   const showInspectionCard = () => {
     setIsInspetion((state) => !state);
   };
-
-
 
   const {
     dangers: { extinguishersInspectionOverdue, pointsWithNoExtinguisher },
@@ -23,7 +21,8 @@ export const ExtinguisherModal = (props) => {
     (ex) => ex.id === extinguisherId
   );
 
-  const { producer, type, agent, id, inspectionDate, productionDate } = extinguisher;
+  const { producer, type, agent, id, inspectionDate, productionDate } =
+    extinguisher;
   let toInspect = false;
   let inspectionOverdue = false;
 
@@ -37,13 +36,11 @@ export const ExtinguisherModal = (props) => {
   console.log(inspectionOverdue, toInspect);
   return (
     <div className="modal-content">
-      <p className="danger-info">
-        {inspectionOverdue
-          ? "Inspection Overdue"
-          : toInspect
-          ? "Incoming inspection"
-          : ""}
-      </p>
+      {inspectionOverdue ? (
+        <p className="danger-info">"Inspection Overdue"</p>
+      ) : (
+        toInspect && <p className="danger-info">"Incoming inspection"</p>
+      )}
       <p>
         <strong>Producer: </strong>
         {producer}
@@ -60,16 +57,18 @@ export const ExtinguisherModal = (props) => {
         <strong>Production date: </strong>
         {productionDate}
       </p>
-      {inspectionDate &&
+      {inspectionDate && (
         <p>
           <strong>Last inspection date: </strong>
           {inspectionDate}
         </p>
-      }
-      <div className="button-container">
-        <button onClick={showInspectionCard}>Inspection</button>
-      </div>
-      {isInspetion && (
+      )}
+      {!inspection && (
+        <div className="button-container">
+          <button onClick={showInspectionCard}>Inspection</button>
+        </div>
+      )}
+      {(isInspetion || inspection) && (
         <InspectionCard
           extinguisher={extinguisher}
           type={isInspetion && "inspection"}

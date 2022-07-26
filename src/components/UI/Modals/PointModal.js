@@ -100,24 +100,24 @@ export const PointModal = (props) => {
           Change/Assign Extinguisher
         </button>
         {assignedExtinguisher && (
-          <button onClick={showExtinguisherCard}>
-            Make Inspection/Overhaul
-          </button>
+          <button onClick={showExtinguisherCard}>Make Inspection</button>
         )}
 
         <button onClick={removeHandeler}>Delete Point</button>
       </div>
       <div className="inspection-container">
         {isChangingExtinguisher && (
-          <ExtinguishersList
-            isNull={true}
-            filteredAgent={agent}
-            onClick={changeExtinguisherHandler}
-            filterUsed={true}
-          />
+          <>
+            <ExtinguishersList
+              isNull={true}
+              filteredAgent={agent}
+              onClick={changeExtinguisherHandler}
+              filterUsed={true}
+            />
+          </>
         )}
         {isMakeInspectionOverhaul && (
-          <ExtinguisherModal extinguisherId={assignedExtinguisher.id} />
+          <ExtinguisherModal inspection={true} extinguisherId={assignedExtinguisher.id} />
         )}
       </div>
     </div>

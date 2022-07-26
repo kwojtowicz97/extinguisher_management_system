@@ -24,7 +24,7 @@ export const InspectionCard = (props) => {
   return (
     <div className="inspection-card">
       <p>Check if:</p>
-      <ul>
+      <ul className="inspection-checklist">
         <li>There is no mechanical damage</li>
         <li>Extinguisher isn't used</li>
         <li>Extinguisher has a seal</li>

@@ -88,6 +88,7 @@ body {
   box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
   z-index: 200;
   list-style: none;
+
 }
 
 .modal-backdrop {
@@ -164,7 +165,7 @@ input[type="checkbox"] {
 }
 
 .inspection-card {
-  margin: 1rem 0;
+  margin: 0.3rem 0;
 }
 
 .extinguishers-list {
@@ -390,4 +391,9 @@ button {
 
 .yellow {
   background: rgb(247, 255, 29);
+}
+
+.inspection-container {
+  max-height: 20rem;
+  overflow-y: scroll;
 }
