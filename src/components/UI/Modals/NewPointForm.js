@@ -31,14 +31,16 @@ export const NewPointForm = () => {
       <form onSubmit={checkDataButtonHandler}>
         <div className="point">
           <label htmlFor="point-name">
-            <b>Point name: </b>
+            <b>Point name</b>
           </label>
+          <br />
           <input required onChange={changeNameHandler} type="text" />
         </div>
         <div className="point">
           <label htmlFor="extinguisher-agent">
-            <b>Default extinguisher agent: </b>
+            <b>Default extinguisher agent</b>
           </label>
+          <br />
           <select onChange={changeAgentHandler} id="extinguisher-agent">
             <option>Any</option>
             <option>Water</option>
@@ -49,7 +51,7 @@ export const NewPointForm = () => {
         </div>
         <div className="point">
           <label htmlFor="extinguisher-select">
-            <b>Choose extinguisher: </b>
+            <b>Choose extinguisher</b>
           </label>
           <ExtinguishersList
             filteredAgent={newPointState.agent}

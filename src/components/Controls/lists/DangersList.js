@@ -19,32 +19,38 @@ export const DangersList = () => {
 
   return (
     <div>
-      <h2 className="subtitle">Inspection Overdue</h2>
-      <ul>
-        {extinguishersInspectionOverdue.map((e) => (
-          <li
-            onClick={() => extinguishersInspectionOverdueClickHandler(e.id)}
-            className="list-item"
-            key={`io-${e.id}`}
-          >
-            <b>{`${e.producer} ${e.type}`}</b>
-            <br />
-            Last inspection: <b>{e.inspectionDate}</b>
-          </li>
-        ))}
-      </ul>
-      <h2 className="subtitle">No fire extinguisher</h2>
-      <ul>
-        {pointsWithNoExtinguisher.map((e) => (
-          <li
-            onClick={() => pointsWithNoExtinguisherClickHandler(e)}
-            className="list-item"
-            key={`ne-${e.id}`}
-          >
-            <b>{e.name}</b>
-          </li>
-        ))}
-      </ul>
+      {extinguishersInspectionOverdue.length > 0 && (
+        <>
+          <h2 className="subtitle">Inspection Overdue</h2>
+          <ul>
+            {extinguishersInspectionOverdue.map((e) => (
+              <li
+                onClick={() => extinguishersInspectionOverdueClickHandler(e.id)}
+                className="list-item"
+                key={`io-${e.id}`}
+              >
+                <b>{`${e.producer} ${e.type}`}</b>
+                <br />
+                Last inspection: <b>{e.inspectionDate}</b>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      {pointsWithNoExtinguisher.length > 0 && <>
+        <h2 className="subtitle">No fire extinguisher</h2>
+        <ul>
+          {pointsWithNoExtinguisher.map((e) => (
+            <li
+              onClick={() => pointsWithNoExtinguisherClickHandler(e)}
+              className="list-item"
+              key={`ne-${e.id}`}
+            >
+              <b>{e.name}</b>
+            </li>
+          ))}
+        </ul>
+      </>}
     </div>
   );
 };

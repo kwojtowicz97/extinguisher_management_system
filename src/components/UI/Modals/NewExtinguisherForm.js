@@ -55,7 +55,7 @@ export const NewExtinguisherForm = () => {
   return (
     <div className="modal-content">
       <form onSubmit={addExtinguisherHandler}>
-        <div>
+        <div className="point">
           <label htmlFor="producer">
             <b>Producer: </b>
           </label>
@@ -68,7 +68,7 @@ export const NewExtinguisherForm = () => {
           ></input>
         </div>
 
-        <div>
+        <div className="point">
           <label htmlFor="type">
             <b>Type: </b>
           </label>
@@ -80,7 +80,7 @@ export const NewExtinguisherForm = () => {
             required
           ></input>
         </div>
-        <div>
+        <div className="point">
           <label htmlFor="agent">
             <b>Extinguishing agent: </b>
           </label>
@@ -97,7 +97,7 @@ export const NewExtinguisherForm = () => {
             <option>ABC powder</option>
           </select>
         </div>
-        <div>
+        <div className="point">
           <label htmlFor="production-date">
             <b>Production date: </b>
           </label>
@@ -109,13 +109,15 @@ export const NewExtinguisherForm = () => {
             required
           ></input>
         </div>
-        <div>
-          <input
-            type="checkbox"
-            checked={inspDateCheckbox}
-            onChange={() => setInspDateCheckbox((prev) => !prev)}
-          ></input>
-          <label htmlFor="inspection-date">Inspection date</label>
+        <div className="point">
+          <label htmlFor="inspection-date">
+            <input
+              type="checkbox"
+              checked={inspDateCheckbox}
+              onChange={() => setInspDateCheckbox((prev) => !prev)}
+            ></input>
+            <b>Inspection date</b>
+          </label>
           <input
             id="inspection-date"
             type="date"

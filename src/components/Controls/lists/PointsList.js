@@ -35,19 +35,21 @@ export const PointsList = (props) => {
 
   return (
     <div>
-      <input
-        placeholder="search"
-        type="text"
-        value={searchPattern}
-        onChange={searchInputHandler}
-      ></input>
-      <label htmlFor="sortOptions">Sort by</label>
+      <div className="search-container">
+        <input
+          placeholder="Search"
+          type="text"
+          value={searchPattern}
+          onChange={searchInputHandler}
+        ></input>
+        {/* <label htmlFor="sortOptions">Sort by</label>
       <select value={sortByState} onChange={sortByHandler} id="sortOptions">
         <option value="default">Default</option>
         <option value="name">Name</option>
         <option value="agent">Agent</option>
         <option value="extinguisher">Extinguisher</option>
-      </select>
+      </select> */}
+      </div>
       <ul>
         {sortedPoints.map((point) => {
           return (

@@ -34,24 +34,22 @@ export const ExtinguishersList = (props) => {
 
   return (
     <div className="extinguishers-list">
-      <input
-        placeholder="search for prod/type/agent"
-        type="text"
-        value={searchPattern}
-        onChange={searchInputHandler}
-      ></input>
-      <br />
-      <label style={{ padding: 2 + "px" + 0 + "px" }} htmlFor="sortOptions">
-        Sort by{" "}
-      </label>
-      <select value={sortByState} onChange={sortByHandler} id="sortOptions">
-        <option value="default">Default</option>
-        <option value="producer">Producer</option>
-        <option value="type">Type</option>
-        <option value="productionDate">Production Date</option>
-        <option value="inspectionDate">Inspection Date</option>
-        <option value="overhaulDate">Overhaul Date</option>
-      </select>
+      <div className="search-container">
+        <input
+          placeholder="Search for producer/type/agent"
+          type="text"
+          value={searchPattern}
+          onChange={searchInputHandler}
+        ></input>
+        {/* <select value={sortByState} onChange={sortByHandler} id="sortOptions">
+          <option value="default">Default</option>
+          <option value="producer">Producer</option>
+          <option value="type">Type</option>
+          <option value="productionDate">Production Date</option>
+          <option value="inspectionDate">Inspection Date</option>
+          <option value="overhaulDate">Overhaul Date</option>
+        </select> */}
+      </div>
       <ul>
         {isNull && (
           <li
@@ -62,7 +60,7 @@ export const ExtinguishersList = (props) => {
           </li>
         )}
         {sortedExtinguishers
-          .filter((ex) => filterUsed ? !ex.isUsed : true)
+          .filter((ex) => (filterUsed ? !ex.isUsed : true))
           .map((extinguisher) => (
             <li
               className={`list-item ${
@@ -71,7 +69,7 @@ export const ExtinguishersList = (props) => {
               onClick={() => (onClick ? clickHandler(extinguisher.id) : null)}
               key={extinguisher.id}
             >
-              <b>{`${extinguisher.producer} ${extinguisher.type} (${extinguisher.agent})`}</b>
+              <b>{`${extinguisher.producer} ${extinguisher.type} (${extinguisher.agent}) - ${extinguisher.isUsed ? "ASSIGNED" : "UNASSIGNED"}`}</b>
             </li>
           ))}
       </ul>
