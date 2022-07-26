@@ -38,10 +38,10 @@ function App() {
       <Hamburger />
       <Map />
       <Controls>
-        <ControlsSection title={"Dangers"} icon={"!"} collapsable={false}>
+        <ControlsSection title={"Dangers"} badge collapsable={false}>
           <DangersList />
         </ControlsSection>
-        <ControlsSection title={"Warnings"} collapsable={false}>
+        <ControlsSection title={"Warnings"} badge collapsable={false}>
           <WarningsList />
         </ControlsSection>
 

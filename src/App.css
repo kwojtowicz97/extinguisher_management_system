@@ -245,6 +245,7 @@ ul {
   background: #ffffff;
   display: flex;
   flex-direction: row;
+  align-items: center;
   border-radius: 0px 0px 0px 8px;
   box-shadow: 0 4px 2px -2px rgb(0 0 0 / 30%);
 }
@@ -368,4 +369,22 @@ button {
 
 .warnings-and-dangers {
   margin-left: 1rem;
+}
+
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.red {
+  background: red;
+}
+
+.yellow {
+  background: rgb(247, 255, 29);
 }
