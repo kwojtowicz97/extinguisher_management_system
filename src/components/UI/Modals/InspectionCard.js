@@ -7,7 +7,7 @@ export const InspectionCard = (props) => {
   const { extinguishersDispatch } = appCtx;
   const { extinguisher, type } = props;
 
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date().toISOString().substring(0, 10));
 
   const dateHandler = (e) => {
     setDate(e.target.value);
@@ -37,7 +37,6 @@ export const InspectionCard = (props) => {
       <input
         id="date"
         type="date"
-        defaultValue={new Date().toISOString().substring(0, 10)}
         value={date}
         onChange={dateHandler}
       />
