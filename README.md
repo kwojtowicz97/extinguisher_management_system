@@ -2,7 +2,7 @@
 
 Application created in React where you can manage fire extinguishers in a builing.
 
-Live version: https://fire-extinguisher-management-system.onrender.com/
+Live version: https://fems.kwojtowicz.com/
 
 Functions:
 
